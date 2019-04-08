@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+}
+
+* {
+    font: 16px 'courier new';
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding-top: 0;
+    background-color: rgb(241, 208, 167);
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ek222re-project",
+  "version": "1.0.0",
+  "description": "Student project for course 1dv430",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1dv430/ek222re-project.git"
+  },
+  "author": "Emma Källström ek222re@student.lnu.se",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1dv430/ek222re-project/issues"
+  },
+  "homepage": "https://github.com/1dv430/ek222re-project#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.15.6",
+    "helmet": "^3.16.0",
+    "morgan": "^1.9.1",
+    "npm": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "standard": "^12.0.1"
+  }
+}
