@@ -1,5 +1,46 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+ nav.navbar
+  .container
+    div
+      ul.navbar-nav
+        li
+          a.nav-link(href='#') Hem
+        li
+          a.nav-link(href='#') Om sidan
+        li
+          a.nav-link(href='#') Kontakt
+        li
+          a.nav-link(href='#') Ny användare
+        li
+          a.nav-link(href='#') Logga in
+ .container
+  .heading-row
+    div
+      img(src='#')
+    .heading-text
+      h1 Hello world!
+      p Welcome to this Page
+  .row
+    div
+      div
+        .card-body
+          h2.card-title First recipe
+          p.card-text To be continued
+        .card-footer
+          a(href='#') More info
+    div
+      div
+        .card-body
+          h2.card-title Second recipe
+          p.card-text To be continued
+        .card-footer
+          a(href='#') More info
+    div
+      div
+        .card-body
+          h2.card-title Third recipe
+          p.card-text To be continued
+        .card-footer
+          a(href='#') More info
