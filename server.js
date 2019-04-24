@@ -11,7 +11,22 @@ mongoose.connect().catch(error => {
     process.exit(1)
 })
 
-app.use('/recept', require('./routes/recipeRouter'))
+app.use((req, res, next) => {
+    if (req.session.flash) {
+        res.locals.flash = req.session.flash
+        delete req.session.flash
+    }
+    if (req.session.signedin) {
+        res.locals.signedin = req.session.signedin
+    }
+    next()
+})
+
+//routes
+app.use('/recept', require('./routes/recipe'))
+app.use('/register', require('./routes/register'))
+app.use('/om', require('./routes/about'))
+app.use('/kontakt', require('./routes/contact'))
 
 
 app.listen(port, () => console.log(`Server started on ${port}`))
