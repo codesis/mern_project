@@ -1,17 +1,17 @@
 const express = require('express')
+const mongoose = require('./config/mongoose')
+const bodyParser = require('body-parser')
 
 const app = express()
+const port = process.env.PORT
+app.use(helmet())
 
-app.get('/api/recipes', (req, res) => {
-    //to be mongodb
-    const recipes = [
-        {id: 1, firstName: 'John', lastName: 'Doe'},
-        {id: 2, firstName: 'Doe', lastName: 'John'}
-    ]
-
-    res.json(recipes)
+mongoose.connect().catch(error => {
+    console.error(error)
+    process.exit(1)
 })
 
-const port = 5000
+app.use('/recept', require('./routes/recipeRouter'))
+
 
 app.listen(port, () => console.log(`Server started on ${port}`))
