@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import './App.css';
+// import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import Index from './components/index/index'
 import Recipes from './components/recipes/recipes'
+import CreateRecipes from './components/recipes/createrecipes'
 import About from './components/about/about'
 import Contact from './components/contact/contact'
 import Register from './components/register/register'
@@ -16,7 +18,6 @@ class App extends Component {
       <Router>
       <div className="container">
         <nav className="navbar">
-         <Link to="/" className="navbar-brand">Recept webbsideApp</Link>
          <div className="navbar-collapse">
           <ul className="navbar-ul">
             <li className="navbar-item">
@@ -24,6 +25,9 @@ class App extends Component {
             </li>
             <li className="navbar-item">
             <Link to="/recept" className="nav-link">Recept</Link>
+            </li>
+            <li className="navbar-item">
+            <Link to="/skapa" className="nav-link">Skapa recept</Link>
             </li>
             <li className="navbar-item">
             <Link to="/om" className="nav-link">Om sidan</Link>
@@ -44,6 +48,7 @@ class App extends Component {
        <h2>Recept webbsideapp</h2>
        <Route path="/" exact component={Index} />
        <Route path="/recept" exact component={Recipes} />
+       <Route path="/skapa" exact component={CreateRecipes} />
        <Route path="/om" exact component={About} />
        <Route path="/kontakt" exact component={Contact} />
        <Route path="/registrera" exact component={Register} />
