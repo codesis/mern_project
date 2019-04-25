@@ -20,7 +20,7 @@ mongoose.connect().catch(error => {
 })
 
 
-recipeRoutes.route('/')
+recipeRoutes.route('/recept')
 .get(function(req, res) {
     Recipe.find(function(err, recipes) {
         if (err) {
@@ -31,7 +31,7 @@ recipeRoutes.route('/')
     })
 })
 
-recipeRoutes.route('/:cat')
+recipeRoutes.route('/recept/:cat')
 .get(function(req, res) {
     let cat = req.params.cat
     Recipe.findByCat(cat, function(err, recipes) {
@@ -39,7 +39,7 @@ recipeRoutes.route('/:cat')
     })
 })
 
-recipeRoutes.route('/:id')
+recipeRoutes.route('/recept/:id')
 .get(function(req, res) {
     let id = req.params.id
     Recipe.findById(id, function(err, recipes) {
@@ -47,15 +47,15 @@ recipeRoutes.route('/:id')
     })
 })
 
-recipeRoutes.route('/skapa')
-.post(function(req, res) {
+
+app.post('/skapa', (req, res) => {
     let recipe = new Recipe(req.body)
-    recipe.save()
-    .then(recipe => {
-        res.status(200).json({'recipe': 'Recept skapat'})
-    })
-    .catch(err => {
-        res.status(400).send('Något gick fel')
+    recipe.save((err, doc) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(doc)
+        }
     })
 })
 
