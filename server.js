@@ -32,41 +32,45 @@ recipeRoutes.route('/')
     })
 })
 
-recipeRoutes.route('/recept/:cat')
-.get(function(req, res) {
-    let cat = req.params.cat
-    Recipe.findByCat(cat, function(err, recipe) {
-        res.json(recipe)
-    })
-})
+// recipeRoutes.route('/:cat')
+// .get(function(req, res) {
+//     let cat = req.params.cat
+//     Recipe.findByCat(cat, function(err, recipe) {
+//         res.json(recipe)
+//     })
+// })
 
-recipeRoutes.route('/recept/:id')
+recipeRoutes.route('/:id')
 .get(function(req, res) {
     let id = req.params.id
-    Recipe.findById(id, function(err, recipes) {
-        res.json(recipes)
+    Recipe.findById(id, function(err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+        res.json(docs)
+        }
     })
 })
 
-recipeRoutes.route('/uppdatera/:id')
-.post((req, res) => {
-    if (!recipe)
-    res.status(404).send('receptet kan ej hittas')
-    else
-    recipe.recipe_title = req.body.recipe_title
-    recipe.recipe_image = req.body.recipe_image
-    recipe.recipe_howTo = req.body.recipe_howTo
-    recipe.recipe_ingredients = req.body.recipe_ingredients
-    recipe.recipe_nutrValue = req.body.recipe_nutrValue
-    recipe.recipe_cat = req.body.recipe_cat
+// recipeRoutes.route('/uppdatera/:id')
+// .post((req, res) => {
+//     if (!recipe)
+//     res.status(404).send('receptet kan ej hittas')
+//     else
+//     recipe.recipe_title = req.body.recipe_title
+//     recipe.recipe_image = req.body.recipe_image
+//     recipe.recipe_howTo = req.body.recipe_howTo
+//     recipe.recipe_ingredients = req.body.recipe_ingredients
+//     recipe.recipe_nutrValue = req.body.recipe_nutrValue
+//     recipe.recipe_cat = req.body.recipe_cat
 
-    recipe.save().then(recipe => {
-        res.json('Receptet uppdaterades')
-    })
-    .catch(err => {
-        res.status(400).send('Receptet kan ej uppdateras')
-    })
-})
+//     recipe.save().then(recipe => {
+//         res.json('Receptet uppdaterades')
+//     })
+//     .catch(err => {
+//         res.status(400).send('Receptet kan ej uppdateras')
+//     })
+// })
 
 app.post('/skapa', (req, res) => {
     let recipe = new Recipe(req.body)
@@ -80,5 +84,6 @@ app.post('/skapa', (req, res) => {
 })
 
 app.use('/recept', recipeRoutes)
+app.use('/recept/:id', recipeRoutes)
 
 app.listen(port, () => console.log(`Server started on ${port}`))
