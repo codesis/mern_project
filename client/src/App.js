@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-// import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import Index from './components/index/index'
-import Recipes from './components/recipes/recipes'
+import RecipesList from './components/recipes/recipes'
 import CreateRecipes from './components/recipes/createrecipes'
 import About from './components/about/about'
 import Contact from './components/contact/contact'
@@ -47,7 +47,7 @@ class App extends Component {
         <br/>
        <h2>Recept webbsideapp</h2>
        <Route path="/" exact component={Index} />
-       <Route path="/recept" exact component={Recipes} />
+       <Route path="/recept" exact component={RecipesList} />
        <Route path="/skapa" exact component={CreateRecipes} />
        <Route path="/om" exact component={About} />
        <Route path="/kontakt" exact component={Contact} />

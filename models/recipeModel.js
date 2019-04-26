@@ -7,7 +7,7 @@ let Recipe = new Schema({
     recipe_ingredients: { type: String },
     recipe_howTo: { type: String, required: true },
     recipe_image: { data: Buffer, type: String },
-    recipe_nutrValue: { type: String, required: true },
+    recipe_nutrValue: { type: Number, required: true },
     recipe_cat: { type: String, required: true }
 })
 

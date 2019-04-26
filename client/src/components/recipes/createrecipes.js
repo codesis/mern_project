@@ -126,7 +126,10 @@ export default class CreateRecipes extends Component {
                 <label>Kategori: </label>
                 <input type="radio"
                        className="form-check-input"
-                       value={this.state.recipe_cat==='Frukost'}
+                       name="catOptions"
+                       id="frukost"
+                       value="Frukost"
+                       checked={this.state.recipe_cat==='Frukost'}
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Frukost</label>
@@ -134,7 +137,10 @@ export default class CreateRecipes extends Component {
                 <div className="form-check">
                     <input type="radio"
                            className="form-check-input"
-                           value={this.state.recipe_cat==='Lunch'}
+                           name="catOptions"
+                           id="lunch"
+                           value="Lunch"    
+                           checked={this.state.recipe_cat==='Lunch'}
                            onChange={this.onChangeRecipeCat}
                            />
                     <label>Lunch</label>
@@ -142,7 +148,10 @@ export default class CreateRecipes extends Component {
                 <div className="form-check">
                 <input type="radio"
                        className="form-check-input"
-                       value={this.state.recipe_cat==='Middag'}
+                       name="catOptions"
+                       id="middag"
+                       value="Middag"
+                       checked={this.state.recipe_cat==='Middag'}
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Middag</label>
@@ -150,7 +159,10 @@ export default class CreateRecipes extends Component {
                 <div className="form-check">
                 <input type="radio"
                        className="form-check-input"
-                       value={this.state.recipe_cat==='Barnfavoriter'}
+                       name="catOptions"
+                       id="barnfavoriter"
+                       value="Barnfavoriter"
+                       checked={this.state.recipe_cat==='Barnfavoriter'}
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Barnfavoriter</label>
@@ -158,7 +170,10 @@ export default class CreateRecipes extends Component {
                 <div className="form-check">
                 <input type="radio"
                        className="form-check-input"
-                       value={this.state.recipe_cat==='Dessert'}
+                       name="catOptions"
+                       id="dessert"
+                       value="Dessert"
+                       checked={this.state.recipe_cat==='Dessert'}
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Dessert</label>
@@ -167,7 +182,10 @@ export default class CreateRecipes extends Component {
                 <label>Kategori: </label>
                 <input type="radio"
                        className="form-check-input"
-                       value={this.state.recipe_cat==='Special'}
+                       name="catOptions"
+                       id="special"
+                       value="Special"
+                       checked={this.state.recipe_cat==='Special'}
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Special</label>
