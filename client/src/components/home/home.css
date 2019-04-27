@@ -3,11 +3,47 @@
     margin: auto;
     padding: 10px;
     text-align: center;
+    color: #636b46;
+}
+.welc {
+    font-size: 30px;
 }
 .header {
-    color: white;
-    /* background-image: url('bgContact.jpg') */
+    color: #636b46;
+    position: relative;
+    text-align: center;
 }
-.searchbar {
-    color: blue;
+img {
+    height: 350px;
+}
+.search {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 15px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header input[type=search] {
+    border-radius: 4px;
+    font-size: 24px;
+    height: 50px;
+    width: 300px;
+}
+select {
+    height: 50px;
+    font-size: 20px;
+    margin-right: 4px;
+    text-align: center;
+}
+button {
+    height: 60px;
+    width: 60px;
+    margin-left: 8px;
 }
