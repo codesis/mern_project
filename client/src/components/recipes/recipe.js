@@ -2,38 +2,36 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './recipe.css'
 
-const Recipe = props => (
-    <tr>
-      <td>{props.recipe.recipe_title}</td>
-      <td>{props.recipe.recipe_image}</td>
-      <td>{props.recipe.recipe_ingredients}</td>
-      <td>{props.recipe.recipe_howTo}</td>
-      <td>{props.recipe.recipe_nutrValue}</td>
-      <td>{props.recipe.recipe_cat}</td>
-    </tr>
-)
-
 export default class EachRecipe extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {recipes: []}
+        this.state = {
+            recipe_title: '',
+            recipe_image: '',
+            recipe_ingredients: '',
+            recipe_howTo: '',
+            recipe_nutrValue: '',
+            recipe_cat: ''
+        }
+        console.log(this.state)
     }
 
     componentDidMount() {
         axios.get('/recept/'+this.props.match.params.id)
         .then(res => {
             console.log(res)
-            this.setState({ recipes: res.data })
+            this.setState({ 
+                recipe_title: res.data.recipe_title,
+                recipe_image: res.data.recipe_image,
+                recipe_ingredients: res.data.recipe_ingredients,
+                recipe_howTo: res.data.recipe_howTo,
+                recipe_nutrValue: res.data.recipe_nutrValue,
+                recipe_cat: res.data.recipe_cat
+            })
         })
         .catch((err) => {
             console.log(err)
-        })
-    }
-
-    recipeData() {
-        return this.state.recipes.map(function(recipe, i) {
-            return <Recipe recipe={recipe} key={i} />
         })
     }
 
@@ -41,18 +39,12 @@ export default class EachRecipe extends Component {
         return (
             <div>
             <h3>Valt recept</h3>
-            <table className="recept-table" style={{ marginTop: 20}} >
-               <thead>
-                  <tr>
-                   <th>Title</th>
-                   <th>Bild</th>
-                   <th>Kategori</th>
-                  </tr>
-               </thead>
-               <tbody>
-               { this.recipeData() }
-               </tbody>
-            </table>
+              <p value={this.state.recipe_title}>{this.state.recipe_title}</p>
+              <p value={this.state.recipe_image}>{this.state.recipe_image}</p>
+              <p value={this.state.recipe_ingredients}>{this.state.recipe_ingredients}</p>
+              <p value={this.state.recipe_howTo}>{this.state.recipe_howTo}</p>
+              <p value={this.state.recipe_nutrValue}>{this.state.recipe_nutrValue}</p>
+              <p value={this.state.recipe_cat}>{this.state.recipe_cat}</p>
             </div>
         )
     }
