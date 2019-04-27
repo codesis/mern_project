@@ -84,6 +84,5 @@ app.post('/skapa', (req, res) => {
 })
 
 app.use('/recept', recipeRoutes)
-app.use('/recept/:id', recipeRoutes)
 
 app.listen(port, () => console.log(`Server started on ${port}`))

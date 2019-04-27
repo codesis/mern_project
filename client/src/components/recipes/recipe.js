@@ -14,7 +14,6 @@ export default class EachRecipe extends Component {
             recipe_nutrValue: '',
             recipe_cat: ''
         }
-        console.log(this.state)
     }
 
     componentDidMount() {
@@ -35,6 +34,7 @@ export default class EachRecipe extends Component {
         })
     }
 
+    // will be changed, this is not final
     render() {
         return (
             <div>

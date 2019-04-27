@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
-import Index from './components/index/index'
+import Index from './components/home/home'
 import RecipesList from './components/recipes/allrecipes'
 import EachRecipe from './components/recipes/recipe'
 import CreateRecipes from './components/recipes/createrecipes'
@@ -45,7 +45,6 @@ class App extends Component {
          </div>
         </nav>
         <br/>
-       <h2>Recept webbsideapp</h2>
        <Route path="/" exact component={Index} />
        <Route path="/recept" exact component={RecipesList} />
        <Route path="/recept/:id" component={EachRecipe} />

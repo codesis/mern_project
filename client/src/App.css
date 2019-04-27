@@ -1,7 +1,5 @@
 body {
-    padding-top: 0;
-    background-color: rgb(241, 208, 167);
-    background-size: cover;
+    background-color: #f8f2f2;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -16,7 +14,7 @@ body {
     padding: 0rem 1rem;
     float: right;
   }
-  .navbar-nav {
+  .navbar-ul {
     display: flex;
     flex-direction: row;
     padding-left: 0;
