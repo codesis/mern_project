@@ -25,7 +25,6 @@ export default class Index extends Component {
                      <input type="search" placeholder="  Sök recept"></input>
                      <button class="btn-search" type="button" style={{borderRadius: 200/2}}><i class="fas fa-search"></i></button>
                      </form>
-                    <p>This is going to be the header</p>
                 </div>
                 <div className="searchbar">
                     <p>This is going to be the searchbar</p>
