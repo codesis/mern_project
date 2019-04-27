@@ -23,11 +23,33 @@ export default class Index extends Component {
                    </select>
                      </div>
                      <input type="search" placeholder="  Sök recept"></input>
-                     <button class="btn-search" type="button" style={{borderRadius: 200/2}}><i class="fas fa-search"></i></button>
+                     <button class="btn-search" type="submit" style={{borderRadius: 200/2}}><i class="fas fa-search"></i></button>
                      </form>
                 </div>
-                <div className="searchbar">
-                    <p>This is going to be the searchbar</p>
+                <br/>
+                <div className="gallery">
+                  <img src={header} alt="frukost" width="600" height="400"></img>
+                  <div className="r-titel">Här står frukostens titel</div>
+                </div>
+                <div className="gallery">
+                  <img src={header} alt="lunch" width="600" height="400"></img>
+                  <div className="r-titel">Här står lunchens titel</div>
+                </div>
+                <div className="gallery">
+                  <img src={header} alt="middag" width="600" height="400"></img>
+                  <div className="r-titel">Här står middagens titel</div>
+                </div>                
+                <div className="gallery">
+                  <img src={header} alt="dessert" width="600" height="400"></img>
+                  <div className="r-titel">Här står dessertens titel</div>
+                </div>
+                <div className="gallery">
+                  <img src={header} alt="barnfavoriter" width="600" height="400"></img>
+                  <div className="r-titel">Här står barnfavons titel</div>
+                </div>
+                <div className="gallery">
+                 <img src={header} alt="special" width="200" height="400"></img>
+                 <div className="r-titel">Här står specialens titel</div>
                 </div>
             </div>
         )

@@ -13,7 +13,7 @@
     position: relative;
     text-align: center;
 }
-img {
+.header img {
     height: 350px;
 }
 .search {
@@ -57,4 +57,26 @@ input:focus, select:focus, button:focus {
 }
 input[type=search]:focus {
     width: 300px;
+}
+.gallery {
+    display: inline-block;
+    margin: 7px 7px;
+    border: 1px solid #cda34f;
+    width: 300px;
+}
+
+.gallery:hover {
+    border: 1px solid #636b46;
+    color: #cda34f;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.r-titel {
+    padding: 15px;
+    text-align: center;
 }
