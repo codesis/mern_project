@@ -12,7 +12,7 @@ export default class Index extends Component {
                    <img src={header} alt="header" style={{width:800, borderRadius: 400/2 }}/>
                    <form className="search">
                      <div className="input-select">
-                     <select data-trigger="" name="choices-single-defaul">
+                     <select data-trigger="" name="kategori">
                      <option placeholder="">Kategori</option>
                      <option>Frukost</option>
                      <option>Lunch</option>
@@ -23,7 +23,7 @@ export default class Index extends Component {
                    </select>
                      </div>
                      <input type="search" placeholder="  Sök recept"></input>
-                     <button class="btn-search" type="submit" style={{borderRadius: 200/2}}><i class="fas fa-search"></i></button>
+                     <button className="btn-search" type="submit" style={{borderRadius: 200/2}}><i className="fas fa-search"></i></button>
                      </form>
                 </div>
                 <br/>

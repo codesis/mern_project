@@ -17,7 +17,9 @@ export default class RecipesList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {recipes: []}
+        this.state = {
+            search: '',
+            recipes: []}
     }
 
     componentDidMount() {
@@ -32,15 +34,33 @@ export default class RecipesList extends Component {
     }
 
     recipeList() {
-        return this.state.recipes.map(function(recipe, i) {
-            return <Recipe recipe={recipe} key={i} />
+        return this.state.recipes.map((recipe) => {
+            return <Recipe recipe={recipe} key={recipe._id} />
         })
     }
+
+    updateSearch(event) {
+        this.setState({search: event.target.value})
+        }
     
     render() {
         return (
             <div>
             <h3>Alla recept</h3>
+            <form className="search">
+            <div className="input-select">
+            <select id="cat-select">
+            <option value="frukost">Frukost</option>
+            <option value="lunch">Lunch</option>
+            <option value="middag">Middag</option>
+            <option value="dessert">Dessert</option>
+            <option value="barnfavoriter">Barnfavoriter</option>
+            <option value="special">Special</option>
+          </select>
+            </div>
+            <input type="search" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
+            <button className="btn-search" type="submit" style={{borderRadius: 200/2}}><i className="fas fa-search"></i></button>
+            </form>        
             <table className="recept-table" style={{ marginTop: 20}} >
                <thead>
                   <tr>

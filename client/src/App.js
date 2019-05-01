@@ -6,6 +6,7 @@ import "./App.css";
 import Index from './components/home/home'
 import RecipesList from './components/recipes/allrecipes'
 import EachRecipe from './components/recipes/recipe'
+import Category from './components/recipes/category'
 import CreateRecipes from './components/recipes/createrecipes'
 import About from './components/about/about'
 import Contact from './components/contact/contact'
@@ -48,6 +49,12 @@ class App extends Component {
        <Route path="/" exact component={Index} />
        <Route path="/recept" exact component={RecipesList} />
        <Route path="/recept/:id" component={EachRecipe} />
+       <Route path="/recept/frukost" component={Category} />
+       <Route path="/recept/lunch" component={Category} />
+       <Route path="/recept/middag" component={Category} />
+       <Route path="/recept/dessert" component={Category} />
+       <Route path="/recept/barnfavoriter" component={Category} />
+       <Route path="/recept/special" component={Category} />
        <Route path="/skapa" exact component={CreateRecipes} />
        <Route path="/om" exact component={About} />
        <Route path="/kontakt" exact component={Contact} />
