@@ -1,49 +1,42 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './allrecipes.css'
-import { Link } from "react-router-dom";
+import FilterResults from 'react-filter-search'
 
-const Recipe = props => (
-    <tr>
-        <td>{props.recipe.recipe_title}</td>
-        <td>{props.recipe.recipe_image}</td>
-        <td>{props.recipe.recipe_cat}</td>
-        <td>
-           <Link to={"/recept/"+props.recipe._id}>Läs mer</Link>
-        </td>
-    </tr>
-)
 export default class RecipesList extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            search: '',
-            recipes: []}
+            data: [],
+            value: ''
+        }
     }
 
     componentDidMount() {
         axios.get('/recept')
         .then(res => {
             console.log(res)
-            this.setState({ recipes: res.data })
+            this.setState({ data: res.data })
         })
         .catch((err) => {
             console.log(err)
         })
     }
 
-    recipeList() {
-        return this.state.recipes.map((recipe) => {
-            return <Recipe recipe={recipe} key={recipe._id} />
-        })
-    }
+    // recipeList() {
+    //     return this.state.recipes.map((recipe) => {
+    //         return <Recipe recipe={recipe} key={recipe._id} />
+    //     })
+    // }
 
-    updateSearch(event) {
-        this.setState({search: event.target.value})
+    handleChange = event => {
+        const { value } = event.target
+        this.setState({value})
         }
     
     render() {
+        const { data, value } = this.state
         return (
             <div>
             <h3>Alla recept</h3>
@@ -58,21 +51,24 @@ export default class RecipesList extends Component {
             <option value="special">Special</option>
           </select>
             </div>
-            <input type="search" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
+            <input type="search" value={value} onChange={this.handleChange}/>
             <button className="btn-search" type="submit" style={{borderRadius: 200/2}}><i className="fas fa-search"></i></button>
             </form>        
-            <table className="recept-table" style={{ marginTop: 20}} >
-               <thead>
-                  <tr>
-                   <th>Title</th>
-                   <th>Bild</th>
-                   <th>Kategori</th>
-                  </tr>
-               </thead>
-               <tbody>
-               { this.recipeList() }
-               </tbody>
-            </table>
+            <FilterResults
+            value={value}
+            data={data}
+            renderResults={results => (
+                <div>
+                {results.map(el => (
+                    <div>
+                    <span>{el.recipe_title}</span>
+                    <span>{el.recipe_image}</span>
+                    <span>{el.recipe_cat}</span>
+                </div>
+                ))}
+                </div>
+            )}
+            />
             </div>
         )
     }

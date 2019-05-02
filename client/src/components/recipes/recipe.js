@@ -41,10 +41,10 @@ export default class EachRecipe extends Component {
             <div className="recipe-div">
               <p className="recipe-title">{this.state.recipe_title}</p>
               <p className="recipe-image">{this.state.recipe_image}</p>
-              <p value={this.state.recipe_ingredients}>{this.state.recipe_ingredients}</p>
-              <p value={this.state.recipe_howTo}>{this.state.recipe_howTo}</p>
-              <p value={this.state.recipe_nutrValue}>{this.state.recipe_nutrValue}</p>
-              <p value={this.state.recipe_cat}>{this.state.recipe_cat}</p>
+              <p className="recipe-ingr">{this.state.recipe_ingredients}</p>
+              <p className="recipe-how">{this.state.recipe_howTo}</p>
+              <p className="recipe-nutr">{this.state.recipe_nutrValue}</p>
+              <p className="recipe-cat">{this.state.recipe_cat}</p>
             </div>
             </div>
         )
