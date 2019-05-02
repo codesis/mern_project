@@ -10,21 +10,6 @@ export default class Index extends Component {
             <p className="welc">Välkommen!</p>
                <div className="header">
                    <img src={header} alt="header" style={{width:800, borderRadius: 400/2 }}/>
-                   <form className="search">
-                     <div className="input-select">
-                     <select data-trigger="" name="kategori">
-                     <option placeholder="">Kategori</option>
-                     <option>Frukost</option>
-                     <option>Lunch</option>
-                     <option>Middag</option>
-                     <option>Dessert</option>
-                     <option>Barnfavoriter</option>
-                     <option>Special</option>
-                   </select>
-                     </div>
-                     <input type="search" placeholder="  Sök recept"></input>
-                     <button className="btn-search" type="submit" style={{borderRadius: 200/2}}><i className="fas fa-search"></i></button>
-                     </form>
                 </div>
                 <br/>
                 <div className="gallery">

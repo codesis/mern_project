@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './allrecipes.css'
+import { Link } from 'react-router-dom'
 import FilterResults from 'react-filter-search'
 
 export default class RecipesList extends Component {
@@ -24,12 +25,6 @@ export default class RecipesList extends Component {
         })
     }
 
-    // recipeList() {
-    //     return this.state.recipes.map((recipe) => {
-    //         return <Recipe recipe={recipe} key={recipe._id} />
-    //     })
-    // }
-
     handleChange = event => {
         const { value } = event.target
         this.setState({value})
@@ -52,9 +47,11 @@ export default class RecipesList extends Component {
                 <div>
                 {results.map(el => (
                     <div className="gallery">
-                    <img src={el.recipe_image} alt="receptbild" width="600" height="400"></img>
+                    <Link to={"/recept/"+el._id} className="nav-link">
+                    <img src={el.recipe_image} alt="receptbild" width="600" height="400" />
                     <div className="r-titel">{el.recipe_title}</div>
                     <div className="r-cat">{el.recipe_cat}</div>
+                    </Link>
                   </div>
                 ))}
                 </div>
