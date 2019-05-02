@@ -16,14 +16,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-input[type=text] {
+input[type=search] {
     border-radius: 0px 5px 5px 0px;
     font-size: 16px;
-    height: 48px;
+    height: 50px;
     width: 160px;
     transition: ease-in-out, width .35s ease-in-out;
 }
-input[type=text]:focus {
+input[type=search]:focus {
     width: 300px;
 }
 .recipe-list {

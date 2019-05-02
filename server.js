@@ -3,7 +3,9 @@ const mongoose = require('./config/mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const helmet = require('helmet')
+const passport = require('passport')
 const recipeRoutes = express.Router()
+const users = require('./routes/api/users')
 
 let Recipe = require('./models/recipeModel')
 
@@ -12,14 +14,19 @@ const port = process.env.PORT
 
 app.use(helmet())
 app.use(cors())
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 mongoose.connect().catch(error => {
     console.error(error)
     process.exit(1)
 })
-
+// passport middleware
+app.use(passport.initialize())
+// passport config
+require('./config/passport')(passport)
+// routes
+app.use('/', users)
 
 recipeRoutes.route('/')
 .get(function(req, res) {
@@ -76,5 +83,7 @@ app.post('/skapa', (req, res) => {
 })
 
 app.use('/recept', recipeRoutes)
+// app.use('/registrera', registerRoutes)
+// app.use('/loggain', loginRoutes)
 
 app.listen(port, () => console.log(`Server started on ${port}`))

@@ -82,7 +82,7 @@ export default class CreateRecipes extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="content">
             <h3>Skapa nytt recept</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
