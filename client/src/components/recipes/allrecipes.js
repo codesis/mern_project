@@ -36,7 +36,7 @@ export default class RecipesList extends Component {
             <div>
             <h3>Alla recept</h3>
             <form className="search">
-            <button className="btn-search" type="submit" style={{borderStyle: "none"}}><i className="fas fa-search"></i></button>
+            <button className="btn-search" type="button" style={{borderStyle: "none"}}><i className="fas fa-search"></i></button>
             <input type="text" style={{borderStyle: "none"}} value={value} onChange={this.handleChange} placeholder="Sök recept eller kategori här.."/>
             </form>
             <div className="recipe-list">
