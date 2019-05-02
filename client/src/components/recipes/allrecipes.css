@@ -12,7 +12,26 @@
         align-items: center;
     padding: 15px;
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+input[type=text] {
+    border-radius: 0px 5px 5px 0px;
+    font-size: 16px;
+    height: 48px;
+    width: 160px;
+    transition: ease-in-out, width .35s ease-in-out;
+}
+input[type=text]:focus {
+    width: 300px;
+}
+.recipe-list {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 20%;
+    padding: 10px;
+    text-align: center;
+    color: #636b46;
+
 }

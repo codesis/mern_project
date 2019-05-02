@@ -32,69 +32,6 @@ recipeRoutes.route('/')
     })
 })
 
-recipeRoutes.route('/frukost')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Frukost' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-recipeRoutes.route('/lunch')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Lunch' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-
-recipeRoutes.route('/middag')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Middag' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-recipeRoutes.route('/dessert')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Dessert' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-recipeRoutes.route('/barnfavoriter')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Barnfavoriter' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-recipeRoutes.route('/special')
-.get(function(req, res) {
-    Recipe.find({ recipe_cat: 'Special' }, function(err, recipe) {
-        if (err) {
-            console.error(err)
-        } else {
-        res.json(recipe)
-        }
-    })
-})
-
-
 recipeRoutes.route('/:id')
 .get(function(req, res) {
     let id = req.params.id

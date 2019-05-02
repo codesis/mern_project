@@ -31,7 +31,7 @@
 }
 
 input[type=search] {
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     font-size: 24px;
     height: 50px;
     width: 160px;
@@ -46,7 +46,7 @@ select {
 button {
     height: 50px;
     width: 60px;
-    margin-left: 4px;
+    border-radius: 5px 0px 0px 5px;
 }
 i {
     color: #cda34f;
