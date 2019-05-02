@@ -14,7 +14,7 @@ module.exports = function validateRegisterInput(data) {
     }
     
     if (Validator.isEmpty(data.email)) {
-        errors.name = 'Email måste fyllas i'
+        errors.email = 'Email måste fyllas i'
     } else if (!Validator.isEmail(data.email)) {
         errors.email = 'Email är ogiltig'
     }
@@ -28,7 +28,7 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (!Validator.isLength(data.password, { min: 6 })) {
-        errors.password = 'Lösenordet måste minst vara 6 karaktärer'
+        errors.password = 'Lösenordet måste vara minst 6 karaktärer'
     }
 
     if (!Validator.equals(data.password, data.password2)) {
