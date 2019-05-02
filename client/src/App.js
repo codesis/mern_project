@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import { Provider } from 'react-redux'
+import store from './store'
+
 import "./App.css";
 
 import Index from './components/home/home'
@@ -16,6 +19,7 @@ import Navbar from './components/layout/navbar'
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <Router>
       <div className="container">
       <Navbar />
@@ -30,8 +34,9 @@ class App extends Component {
        <Route path="/loggain" exact component={Login} /> 
       </div>
       </Router>
+      </Provider>
     )
   }
 }
 
-export default App;
+export default App
