@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
 export default class CreateRecipes extends Component {
     constructor(props) {
         super(props)
@@ -22,6 +23,17 @@ export default class CreateRecipes extends Component {
             recipe_cat: ''
         }
     }
+
+    componentDidMount() {
+        this.fetchOptions()
+    }
+
+    fetchOptions() {
+        fetch('data/livsmedel.json')
+        .then(res => res.json())
+        .then(res=> this.setState({ recipe_ingredients: res }))
+    }
+
     onChangeRecipeTitle(e) {
         this.setState({
             recipe_title: e.target.value
@@ -95,11 +107,14 @@ export default class CreateRecipes extends Component {
                 </div>
                 <div className="form-group">
                 <label>Ingredienser: </label>
-                <input type="checkbox" 
-                       className="form-control"
-                       value={this.state.recipe_ingredients}
-                       onChange={this.onChangeRecipeIngredients}
-                       />
+                <select onChange={this.onChangeRecipeIngredients}>
+                {this.state.recipe_ingredients.map(function(ingredient, index) {
+                    return <option key={index} 
+                    >value={ingredient.Livsmedelsnamn} 
+                    onChange={this.onChangeRecipeIngredients}
+                    </option>
+                })}
+                </select>
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
@@ -202,3 +217,9 @@ export default class CreateRecipes extends Component {
         )
     }
 }
+
+// <input type="checkbox" 
+// className="form-control"
+// value={this.state.recipe_ingredients}
+// onChange={this.onChangeRecipeIngredients}
+// />

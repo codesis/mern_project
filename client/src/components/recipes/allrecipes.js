@@ -46,7 +46,7 @@ export default class RecipesList extends Component {
             renderResults={results => (
                 <div>
                 {results.map(el => (
-                    <div className="gallery">
+                    <div className="gallery" key={el._id}>
                     <Link to={"/recept/"+el._id} className="nav-link">
                     <img src={el.recipe_image} alt="receptbild" width="600" height="400" />
                     <div className="r-titel">{el.recipe_title}</div>
