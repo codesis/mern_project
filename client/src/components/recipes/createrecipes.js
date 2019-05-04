@@ -16,7 +16,7 @@ export default class CreateRecipes extends Component {
 
         this.state = {
             recipe_title: '',
-            recipe_ingredients: '',
+            recipe_ingredients: [],
             recipe_howTo: '',
             recipe_image: '',
             recipe_nutrValue: '',
@@ -85,7 +85,7 @@ export default class CreateRecipes extends Component {
 
         this.setState({
             recipe_title: '',
-            recipe_ingredients: '',
+            recipe_ingredients: [],
             recipe_howTo: '',
             recipe_image: '',
             recipe_nutrValue: '',
@@ -107,12 +107,9 @@ export default class CreateRecipes extends Component {
                 </div>
                 <div className="form-group">
                 <label>Ingredienser: </label>
-                <select onChange={this.onChangeRecipeIngredients}>
+                <select multiple={true} onChange={this.onChangeRecipeIngredients}>
                 {this.state.recipe_ingredients.map(function(ingredient, index) {
-                    return <option key={index} 
-                    >value={ingredient.Livsmedelsnamn} 
-                    onChange={this.onChangeRecipeIngredients}
-                    </option>
+                    return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
                 })}
                 </select>
                 </div>
