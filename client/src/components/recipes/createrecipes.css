@@ -1,53 +1,24 @@
-ul {
-    list-style: none;
-    padding: 0;
-    width: 30%;
-    margin: auto;
+.create-recipe {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 5%;
+  padding: 10px;
+  text-align: center;
+  color: #636b46;
 }
-li {
-    font-size: 1.3rem;
-    line-height: 2rem;
-    border-bottom: 1px dotted #777;
+.custom-select {
+  position: relative;
+  width: 200px;
 }
+.create-recipe input {
+  font-size: 24px;
 
- .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: auto;
-  }
-  .heading-row {
-    margin: auto;
-    width: 50%;
-  }
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 25%;
-    margin: auto;
-    width: 50%;
-  }
-  .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-  }
-  .card-body {
-    flex: 1 1 auto;
-    padding: 1.25rem;
-  }
-  
-  .card-title {
-    margin-bottom: 0.75rem;
-  }  
-  .card-footer {
-    padding: 0.75rem 1.25rem;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-  }   
+}
+.form-check {
+  text-align: center;
+}
+#category {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+}

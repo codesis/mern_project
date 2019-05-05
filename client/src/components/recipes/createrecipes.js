@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import data from './livsmedel.json'
+import './createrecipes.css'
 
 
 export default class CreateRecipes extends Component {
@@ -85,7 +86,7 @@ export default class CreateRecipes extends Component {
     }
     render() {
         return (
-            <div className="content">
+            <div className="create-recipe">
             <h3>Skapa nytt recept</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
@@ -98,11 +99,13 @@ export default class CreateRecipes extends Component {
                 </div>
                 <div className="form-group">
                 <label>Ingredienser: </label>
+                <div className="custom-select">
                 <select multiple={true} onChange={this.onChangeRecipeIngredients}>
                 {data.map(function(ingredient, index) {
                     return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
                 })}
-                </select>                
+                </select>
+                </div>                
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
@@ -126,7 +129,8 @@ export default class CreateRecipes extends Component {
                    />
                 <div className="form-group">
                     <div className="form-check">
-                <label>Kategori: </label>
+                <label id="category">Kategori</label>
+                <br/>
                 <input type="radio"
                        className="form-check-input"
                        name="catOptions"
@@ -182,7 +186,6 @@ export default class CreateRecipes extends Component {
                        <label>Dessert</label>
                 </div>
                 <div className="form-check">
-                <label>Kategori: </label>
                 <input type="radio"
                        className="form-check-input"
                        name="catOptions"

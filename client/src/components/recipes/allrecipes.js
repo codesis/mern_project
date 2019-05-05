@@ -62,15 +62,3 @@ export default class RecipesList extends Component {
         )
     }
 }
-
-//            <div className="input-select">
-// <select id="cat-select">
-// <option placeholder="">Kategori</option>
-// <option value={value==="frukost"} onChange={this.handleChange}>Frukost</option>
-// <option value="lunch">Lunch</option>
-// <option value="middag">Middag</option>
-// <option value="dessert">Dessert</option>
-// <option value="barnfavoriter">Barnfavoriter</option>
-// <option value="special">Special</option>
-// </select>
-// </div>
