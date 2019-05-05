@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import Select from 'react-select'
 import data from './livsmedel.json'
 
 
@@ -25,21 +24,6 @@ export default class CreateRecipes extends Component {
             recipe_cat: ''
         }
     }
-
-    // componentDidMount() {
-    //     this.fetchOptions()
-    // }
-
-    // fetchOptions() {
-    //     fetch('data/livsmedel.json')
-    //     .then(function (res) {
-    //         let recipe_ingredients = res.data.map( livsmedel => ({ value: livsmedel.livsmedelsnamn }))
-    //         return { recipe_ingredients }
-    //     })
-    //     .catch(function (err) {
-    //         console.log(err)
-    //     })
-    // }
 
     onChangeRecipeTitle(e) {
         this.setState({
@@ -118,7 +102,8 @@ export default class CreateRecipes extends Component {
                 {data.map(function(ingredient, index) {
                     return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
                 })}
-                </select>                </div>
+                </select>                
+                </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
                 <input type="text"
@@ -220,9 +205,3 @@ export default class CreateRecipes extends Component {
         )
     }
 }
-
-// <input type="checkbox" 
-// className="form-control"
-// value={this.state.recipe_ingredients}
-// onChange={this.onChangeRecipeIngredients}
-// />
