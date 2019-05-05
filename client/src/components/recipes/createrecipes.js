@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+// import Select from 'react-select'
+import data from './livsmedel.json'
 
 
 export default class CreateRecipes extends Component {
@@ -24,15 +26,20 @@ export default class CreateRecipes extends Component {
         }
     }
 
-    componentDidMount() {
-        this.fetchOptions()
-    }
+    // componentDidMount() {
+    //     this.fetchOptions()
+    // }
 
-    fetchOptions() {
-        fetch('data/livsmedel.json')
-        .then(res => res.json())
-        .then(res=> this.setState({ recipe_ingredients: res }))
-    }
+    // fetchOptions() {
+    //     fetch('data/livsmedel.json')
+    //     .then(function (res) {
+    //         let recipe_ingredients = res.data.map( livsmedel => ({ value: livsmedel.livsmedelsnamn }))
+    //         return { recipe_ingredients }
+    //     })
+    //     .catch(function (err) {
+    //         console.log(err)
+    //     })
+    // }
 
     onChangeRecipeTitle(e) {
         this.setState({
@@ -41,7 +48,7 @@ export default class CreateRecipes extends Component {
     }
     onChangeRecipeIngredients(e) {
         this.setState({
-            recipe_ingredients: e.target.value
+            recipe_ingredients: Array.from(e.target.selectedOptions, (item) => item.value)
         })
     }
     onChangeRecipeHowTo(e) {
@@ -108,11 +115,10 @@ export default class CreateRecipes extends Component {
                 <div className="form-group">
                 <label>Ingredienser: </label>
                 <select multiple={true} onChange={this.onChangeRecipeIngredients}>
-                {this.state.recipe_ingredients.map(function(ingredient, index) {
+                {data.map(function(ingredient, index) {
                     return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
                 })}
-                </select>
-                </div>
+                </select>                </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
                 <input type="text"
