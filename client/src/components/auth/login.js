@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
 import classnames from 'classnames'
 import './auth.css'
-import { stat } from 'fs';
 
 class Login extends Component {
   constructor() {
