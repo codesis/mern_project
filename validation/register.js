@@ -32,7 +32,7 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (!Validator.equals(data.password, data.password2)) {
-        errors.password2 = 'Lösenordet måste matcha'
+        errors.password2 = 'Lösenorden måste matcha'
     }
 
     return {
