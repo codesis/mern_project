@@ -6,13 +6,8 @@
   text-align: center;
   color: #636b46;
 }
-.custom-select {
-  position: relative;
-  width: 200px;
-}
 .create-recipe input {
   font-size: 24px;
-
 }
 .form-check {
   text-align: center;

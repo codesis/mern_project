@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import data from './livsmedel.json'
 import './createrecipes.css'
+import MultiSelect from '@kenshooui/react-multi-select'
+import '@kenshooui/react-multi-select/dist/style.css'
 
+let livsmedel = Object.values(data)
 
 export default class CreateRecipes extends Component {
     constructor(props) {
@@ -18,11 +21,12 @@ export default class CreateRecipes extends Component {
 
         this.state = {
             recipe_title: '',
-            recipe_ingredients: [],
+            recipe_ingredients: livsmedel,
             recipe_howTo: '',
             recipe_image: '',
             recipe_nutrValue: '',
-            recipe_cat: ''
+            recipe_cat: '',
+            selectedItems: []
         }
     }
 
@@ -31,10 +35,8 @@ export default class CreateRecipes extends Component {
             recipe_title: e.target.value
         })
     }
-    onChangeRecipeIngredients(e) {
-        this.setState({
-            recipe_ingredients: Array.from(e.target.selectedOptions, (item) => item.value)
-        })
+    onChangeRecipeIngredients(selectedItems) {
+        this.setState({ selectedItems })
     }
     onChangeRecipeHowTo(e) {
         this.setState({
@@ -100,11 +102,11 @@ export default class CreateRecipes extends Component {
                 <div className="form-group">
                 <label>Ingredienser: </label>
                 <div className="custom-select">
-                <select multiple={true} onChange={this.onChangeRecipeIngredients}>
-                {data.map(function(ingredient, index) {
-                    return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
-                })}
-                </select>
+                <MultiSelect
+                items={this.state.recipe_ingredients}
+                selectedItems={this.state.selectedItems}
+                onChange={this.onChangeRecipeIngredients}
+                />
                 </div>                
                 </div>
                 <div className="form-group">
@@ -207,4 +209,17 @@ export default class CreateRecipes extends Component {
             </div>
         )
     }
+//     optionClicked(optionsList) {
+//         this.setState({ data: optionsList })
+//         console.log(optionsList)
+//   }
+//   selectedBadgeClicked(optionsList) {
+//         this.setState({ data: optionsList })
+//   }
 }
+
+// <select multiple={true} onChange={this.onChangeRecipeIngredients}>
+// {livsmedel.map(function(ingredient, index) {
+//     return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
+// })}
+// </select>
