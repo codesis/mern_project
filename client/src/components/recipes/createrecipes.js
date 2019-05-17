@@ -5,7 +5,7 @@ import './createrecipes.css'
 import MultiSelect from '@kenshooui/react-multi-select'
 import '@kenshooui/react-multi-select/dist/style.css'
 
-let livsmedel = Object.values(data)
+// let livsmedel = Object.values(data)
 
 export default class CreateRecipes extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ export default class CreateRecipes extends Component {
 
         this.state = {
             recipe_title: '',
-            recipe_ingredients: livsmedel,
+            recipe_ingredients: data,
             recipe_howTo: '',
             recipe_image: '',
             recipe_nutrValue: '',
@@ -67,7 +67,7 @@ export default class CreateRecipes extends Component {
 
         const newRecipe = {
             recipe_title: this.state.recipe_title,
-            recipe_ingredients: this.state.recipe_ingredients,
+            recipe_ingredients: this.state.selectedItems,
             recipe_howTo: this.state.recipe_howTo,
             recipe_image: this.state.recipe_image,
             recipe_nutrValue: this.state.recipe_nutrValue,
