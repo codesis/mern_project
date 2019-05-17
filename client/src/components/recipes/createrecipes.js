@@ -103,6 +103,7 @@ export default class CreateRecipes extends Component {
                 <label>Ingredienser: </label>
                 <div className="custom-select">
                 <MultiSelect
+                showSelectAll={false}
                 items={this.state.recipe_ingredients}
                 selectedItems={this.state.selectedItems}
                 onChange={this.onChangeRecipeIngredients}
