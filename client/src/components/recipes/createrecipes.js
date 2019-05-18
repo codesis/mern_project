@@ -26,7 +26,13 @@ export default class CreateRecipes extends Component {
             recipe_image: '',
             recipe_nutrValue: '',
             recipe_cat: '',
-            selectedItems: []
+            selectedItems: [],
+            messages: {
+                noneSelectedMessage: '',
+                searchPlaceholder: 'Sök ingrediens...',
+                clearAllMessage: 'Rensa listan',
+                selectedMessage: 'valda'
+            }
         }
     }
 
@@ -103,6 +109,7 @@ export default class CreateRecipes extends Component {
                 <label>Ingredienser: </label>
                 <div className="custom-select">
                 <MultiSelect
+                messages={this.state.messages}
                 showSelectAll={false}
                 items={this.state.recipe_ingredients}
                 selectedItems={this.state.selectedItems}
