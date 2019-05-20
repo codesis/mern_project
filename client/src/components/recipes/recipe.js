@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import header from '../home/bgContact.jpg'
 import './recipe.css'
 
 export default class EachRecipe extends Component {
@@ -21,7 +22,6 @@ export default class EachRecipe extends Component {
             console.log(res)
             this.setState({ 
                 recipe_title: res.data.recipe_title,
-                recipe_image: res.data.recipe_image,
                 recipe_ingredients: res.data.recipe_ingredients,
                 recipe_howTo: res.data.recipe_howTo,
                 recipe_nutrValue: res.data.recipe_nutrValue,
@@ -40,7 +40,7 @@ export default class EachRecipe extends Component {
             <h3>Valt recept</h3>
             <div className="recipe-div">
               <p className="recipe-title">Titel: {this.state.recipe_title}</p>
-              <p className="recipe-image">Bild: {this.state.recipe_image}</p>
+              <img alt="tillfällig bild" src={header} width="600" height="400"/>
               <p className="recipe-ingr">Ingredienslista: {this.state.recipe_ingredients.map((item) => 
                   <li key={item.id}>{item.label}</li>
               )}</p>

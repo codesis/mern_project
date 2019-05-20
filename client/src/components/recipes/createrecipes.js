@@ -14,7 +14,6 @@ export default class CreateRecipes extends Component {
         this.onChangeRecipeTitle = this.onChangeRecipeTitle.bind(this)
         this.onChangeRecipeIngredients = this.onChangeRecipeIngredients.bind(this)
         this.onChangeRecipeHowTo = this.onChangeRecipeHowTo.bind(this)
-        this.onChangeRecipeImage = this.onChangeRecipeImage.bind(this)
         this.onChangeRecipeNutrValue = this.onChangeRecipeNutrValue.bind(this)
         this.onChangeRecipeCat = this.onChangeRecipeCat.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -23,8 +22,7 @@ export default class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: data,
             recipe_howTo: '',
-            recipe_image: null,
-            recipe_nutrValue: '',
+            recipe_nutrValue: [],
             recipe_cat: '',
             selectedItems: [],
             messages: {
@@ -49,17 +47,8 @@ export default class CreateRecipes extends Component {
             recipe_howTo: e.target.value
         })
     }
-    onChangeRecipeImage(e) {
-        console.log(e.target.files[0])
-        this.setState({
-            recipe_image: e.target.files[0],
-            loaded: 0
-        })
-    }
-    onChangeRecipeNutrValue(e) {
-        this.setState({
-            recipe_nutrValue: e.target.value
-        })
+    onChangeRecipeNutrValue(recipe_nutrValue) {
+        this.setState({ recipe_nutrValue })
     }
     onChangeRecipeCat(e) {
         this.setState({
@@ -72,12 +61,12 @@ export default class CreateRecipes extends Component {
         console.log('Form submitted')
         console.log(`Recipe title: ${this.state.recipe_title}`)
         console.log(`Recipe category: ${this.state.recipe_cat}`)
+        console.log(`Recipe nutrition: ${this.state.recipe_nutrValue}`)
 
         const newRecipe = {
             recipe_title: this.state.recipe_title,
             recipe_ingredients: this.state.selectedItems,
             recipe_howTo: this.state.recipe_howTo,
-            recipe_image: this.state.recipe_image,
             recipe_nutrValue: this.state.recipe_nutrValue,
             recipe_cat: this.state.recipe_cat
         }
@@ -89,8 +78,7 @@ export default class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: [],
             recipe_howTo: '',
-            recipe_image: '',
-            recipe_nutrValue: '',
+            recipe_nutrValue: [],
             recipe_cat: ''
         })
     }
@@ -127,15 +115,8 @@ export default class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeHowTo}
                        />
                 <div className="form-group">
-                <label>Bild</label>
-                <input type="file"
-                       className="form-control"
-                       value={this.state.recipe_image}
-                       onChange={this.onChangeRecipeImage}
-                       />
-                <div className="form-group">
                 <label>Näringsvärde på total måltid: </label>
-                <input type="text" className="form-nutr"
+                <input className="form-nutr"
                    value={this.state.recipe_nutrValue}
                    onChange={this.onChangeRecipeNutrValue}
                    />
@@ -207,7 +188,6 @@ export default class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeCat}
                        />
                        <label>Special</label>
-                </div>
                 </div>
                 </div>
                 </div>
