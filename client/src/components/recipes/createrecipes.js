@@ -115,20 +115,17 @@ export default class CreateRecipes extends Component {
                 <th>Fullkorn totalt (g)</th>
                 <th>Sockerarter (g)</th>
                 <th>Mättat fett (g)</th>
-                <th>Enkelomättat fett (g)</th>
-                <th>Fleromättat fett (g)</th>
                 <th>EPA (g)</th>
                 <th>DPA (g)</th>
                 <th>DHA (g)</th>
                 <th>Kolesterol (mg)</th>
-                <th>Retinol (µg)</th>
                 <th>Vitamin A (µg)</th>
                 <th>Betakaroten (µg)</th>
                 <th>Vitamin D (µg)</th>
                 <th>Vitamin E (mg)</th>
                 <th>Vitamin K (µg)</th>
                 <th>Tiamin (mg)</th>
-                <th>Riboflavin (mg)</th>
+                <th>Vitamin B2 (mg)</th>
                 <th>Vitamin C (mg)</th>
                 <th>Niacin (mg)</th>
                 <th>Vitamin B6 (mg)</th>
@@ -139,16 +136,16 @@ export default class CreateRecipes extends Component {
                 <th>Järn (mg)</th>
                 <th>Kalcium (mg)</th>
                 <th>Kalium (mg)</th>
-                <th>Koppar (mg)</th>
                 <th>Magnesium (mg)</th>
                 <th>Natrium (mg)</th>
                 <th>Salt (g)</th>
                 <th>Selen (µg)</th>
                 <th>Zink (mg)</th>
                 </tr>
-                {this.state.selectedItems.map((item) => {
+                <td></td>
+                {this.state.selectedItems.map((item, index) => {
                     return (
-                        <tr key={item.id}>
+                        <tr key={index}>
                         <td>{item.kcal}</td>
                         <td>{item.carbs}</td>
                         <td>{item.Fett}</td>
@@ -157,13 +154,10 @@ export default class CreateRecipes extends Component {
                         <td>{item.Fullkorn}</td>
                         <td>{item.Socker}</td>
                         <td>{item.MättatFett}</td>
-                        <td>{item.EnkelOmättatFett}</td>
-                        <td>{item.FlerOmättatFett}</td>
                         <td>{item.EPA}</td>
                         <td>{item.DPA}</td>
                         <td>{item.DHA}</td>
                         <td>{item.Kolesterol}</td>
-                        <td>{item.Retinol}</td>
                         <td>{item.VitA}</td>
                         <td>{item.BetaKaroten}</td>
                         <td>{item.VitD}</td>
@@ -181,7 +175,6 @@ export default class CreateRecipes extends Component {
                         <td>{item.Järn}</td>
                         <td>{item.Kalcium}</td>
                         <td>{item.Kalium}</td>
-                        <td>{item.Koppar}</td>
                         <td>{item.Magnesium}</td>
                         <td>{item.Natrium}</td>
                         <td>{item.Salt}</td>
