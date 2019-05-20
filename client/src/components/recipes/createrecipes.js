@@ -105,9 +105,93 @@ export default class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeHowTo}
                        />
                 <div className="form-group">
-                <label>Näringsvärde på total måltid: {this.state.selectedItems.map((item) => 
-                    <li key={item.id}>{item.MättatFett}</li>
-                )}</label>
+                <table className="nutr-table">
+                <label>Näringsvärde på total måltid:
+                <tr>
+                <th>Kcal</th>
+                <th>Kolhydrater (g)</th>
+                <th>Fett (g)</th>
+                <th>Protein (g)</th>
+                <th>Fullkorn totalt (g)</th>
+                <th>Sockerarter (g)</th>
+                <th>Mättat fett (g)</th>
+                <th>Enkelomättat fett (g)</th>
+                <th>Fleromättat fett (g)</th>
+                <th>EPA (g)</th>
+                <th>DPA (g)</th>
+                <th>DHA (g)</th>
+                <th>Kolesterol (mg)</th>
+                <th>Retinol (µg)</th>
+                <th>Vitamin A (µg)</th>
+                <th>Betakaroten (µg)</th>
+                <th>Vitamin D (µg)</th>
+                <th>Vitamin E (mg)</th>
+                <th>Vitamin K (µg)</th>
+                <th>Tiamin (mg)</th>
+                <th>Riboflavin (mg)</th>
+                <th>Vitamin C (mg)</th>
+                <th>Niacin (mg)</th>
+                <th>Vitamin B6 (mg)</th>
+                <th>Vitamin B12 (µg)</th>
+                <th>Folat (µg)</th>
+                <th>Fosfor (mg)</th>
+                <th>Jod (µg)</th>
+                <th>Järn (mg)</th>
+                <th>Kalcium (mg)</th>
+                <th>Kalium (mg)</th>
+                <th>Koppar (mg)</th>
+                <th>Magnesium (mg)</th>
+                <th>Natrium (mg)</th>
+                <th>Salt (g)</th>
+                <th>Selen (µg)</th>
+                <th>Zink (mg)</th>
+                </tr>
+                {this.state.selectedItems.map((item) => {
+                    return (
+                        <tr key={item.id}>
+                        <td>{item.kcal}</td>
+                        <td>{item.carbs}</td>
+                        <td>{item.Fett}</td>
+                        <td>{item.Protein}</td>
+                        <td>{item.Fibrer}</td>
+                        <td>{item.Fullkorn}</td>
+                        <td>{item.Socker}</td>
+                        <td>{item.MättatFett}</td>
+                        <td>{item.EnkelOmättatFett}</td>
+                        <td>{item.FlerOmättatFett}</td>
+                        <td>{item.EPA}</td>
+                        <td>{item.DPA}</td>
+                        <td>{item.DHA}</td>
+                        <td>{item.Kolesterol}</td>
+                        <td>{item.Retinol}</td>
+                        <td>{item.VitA}</td>
+                        <td>{item.BetaKaroten}</td>
+                        <td>{item.VitD}</td>
+                        <td>{item.VitE}</td>
+                        <td>{item.VitK}</td>
+                        <td>{item.Tiamin}</td>
+                        <td>{item.Riboflavin}</td>
+                        <td>{item.VitC}</td>
+                        <td>{item.Niacin}</td>
+                        <td>{item.VitB6}</td>
+                        <td>{item.VitB12}</td>
+                        <td>{item.Folat}</td>
+                        <td>{item.Fosfor}</td>
+                        <td>{item.Jod}</td>
+                        <td>{item.Järn}</td>
+                        <td>{item.Kalcium}</td>
+                        <td>{item.Kalium}</td>
+                        <td>{item.Koppar}</td>
+                        <td>{item.Magnesium}</td>
+                        <td>{item.Natrium}</td>
+                        <td>{item.Salt}</td>
+                        <td>{item.Selen}</td>
+                        <td>{item.Zink}</td>
+                        </tr>  
+                    )
+                    })}
+                </label>
+                </table>
                 <div className="form-group">
                     <div className="form-check">
                 <label id="category">Kategori</label>
