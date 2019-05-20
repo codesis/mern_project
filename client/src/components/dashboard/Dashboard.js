@@ -14,10 +14,9 @@ return (
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              <b>Hej,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span>
+                Här kommer Dina egna recept att finnas {" "}
               </p>
             </h4>
             <button
@@ -30,7 +29,7 @@ return (
               onClick={this.onLogoutClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
-              Logout
+              Logga ut
             </button>
           </div>
         </div>

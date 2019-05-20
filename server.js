@@ -14,9 +14,8 @@ const port = process.env.PORT
 
 app.use(helmet())
 app.use(cors())
-app.use('/uploads', express.static('uploads'))
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
-app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+app.use(bodyParser.json({limit: '10mb', extended: true}))
 
 mongoose.connect().catch(error => {
     console.error(error)

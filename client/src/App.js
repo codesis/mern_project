@@ -51,12 +51,12 @@ class App extends Component {
        <Route path="/" exact component={Index} />
        <Route path="/recept" exact component={RecipesList} />
        <Route path="/recept/:id" component={EachRecipe} />
-       <Route path="/skapa" exact component={CreateRecipes} />
        <Route path="/om" exact component={About} />
        <Route path="/kontakt" exact component={Contact} />
        <Route path="/registrera" exact component={Register} />
        <Route path="/loggain" exact component={Login} />
        <Switch>
+        <PrivateRoute path="/skapa" exact component={CreateRecipes} />
         <PrivateRoute path="/dashboard" component={Dashboard} />
        </Switch>
       </div>

@@ -23,7 +23,7 @@ export default class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: data,
             recipe_howTo: '',
-            recipe_image: '',
+            recipe_image: null,
             recipe_nutrValue: '',
             recipe_cat: '',
             selectedItems: [],
@@ -50,8 +50,10 @@ export default class CreateRecipes extends Component {
         })
     }
     onChangeRecipeImage(e) {
+        console.log(e.target.files[0])
         this.setState({
-            recipe_image: e.target.value
+            recipe_image: e.target.files[0],
+            loaded: 0
         })
     }
     onChangeRecipeNutrValue(e) {
@@ -217,17 +219,4 @@ export default class CreateRecipes extends Component {
             </div>
         )
     }
-//     optionClicked(optionsList) {
-//         this.setState({ data: optionsList })
-//         console.log(optionsList)
-//   }
-//   selectedBadgeClicked(optionsList) {
-//         this.setState({ data: optionsList })
-//   }
 }
-
-// <select multiple={true} onChange={this.onChangeRecipeIngredients}>
-// {livsmedel.map(function(ingredient, index) {
-//     return <option value={ingredient.Livsmedelsnamn} key={index}>{ingredient.Livsmedelsnamn}</option>
-// })}
-// </select>
