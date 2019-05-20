@@ -5,8 +5,6 @@ import './createrecipes.css'
 import MultiSelect from '@kenshooui/react-multi-select'
 import '@kenshooui/react-multi-select/dist/style.css'
 
-// let livsmedel = Object.values(data)
-
 export default class CreateRecipes extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +12,6 @@ export default class CreateRecipes extends Component {
         this.onChangeRecipeTitle = this.onChangeRecipeTitle.bind(this)
         this.onChangeRecipeIngredients = this.onChangeRecipeIngredients.bind(this)
         this.onChangeRecipeHowTo = this.onChangeRecipeHowTo.bind(this)
-        this.onChangeRecipeNutrValue = this.onChangeRecipeNutrValue.bind(this)
         this.onChangeRecipeCat = this.onChangeRecipeCat.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
@@ -22,7 +19,6 @@ export default class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: data,
             recipe_howTo: '',
-            recipe_nutrValue: [],
             recipe_cat: '',
             selectedItems: [],
             messages: {
@@ -47,9 +43,6 @@ export default class CreateRecipes extends Component {
             recipe_howTo: e.target.value
         })
     }
-    onChangeRecipeNutrValue(recipe_nutrValue) {
-        this.setState({ recipe_nutrValue })
-    }
     onChangeRecipeCat(e) {
         this.setState({
             recipe_cat: e.target.value
@@ -61,13 +54,11 @@ export default class CreateRecipes extends Component {
         console.log('Form submitted')
         console.log(`Recipe title: ${this.state.recipe_title}`)
         console.log(`Recipe category: ${this.state.recipe_cat}`)
-        console.log(`Recipe nutrition: ${this.state.recipe_nutrValue}`)
 
         const newRecipe = {
             recipe_title: this.state.recipe_title,
             recipe_ingredients: this.state.selectedItems,
             recipe_howTo: this.state.recipe_howTo,
-            recipe_nutrValue: this.state.recipe_nutrValue,
             recipe_cat: this.state.recipe_cat
         }
 
@@ -78,7 +69,6 @@ export default class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: [],
             recipe_howTo: '',
-            recipe_nutrValue: [],
             recipe_cat: ''
         })
     }
@@ -115,11 +105,9 @@ export default class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeHowTo}
                        />
                 <div className="form-group">
-                <label>Näringsvärde på total måltid: </label>
-                <input className="form-nutr"
-                   value={this.state.recipe_nutrValue}
-                   onChange={this.onChangeRecipeNutrValue}
-                   />
+                <label>Näringsvärde på total måltid: {this.state.selectedItems.map((item) => 
+                    <li key={item.id}>{item.MättatFett}</li>
+                )}</label>
                 <div className="form-group">
                     <div className="form-check">
                 <label id="category">Kategori</label>

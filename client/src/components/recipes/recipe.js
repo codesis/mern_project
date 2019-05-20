@@ -8,10 +8,8 @@ export default class EachRecipe extends Component {
         super(props)
         this.state = {
             recipe_title: '',
-            recipe_image: '',
             recipe_ingredients: [],
             recipe_howTo: '',
-            recipe_nutrValue: '',
             recipe_cat: ''
         }
     }
@@ -24,7 +22,6 @@ export default class EachRecipe extends Component {
                 recipe_title: res.data.recipe_title,
                 recipe_ingredients: res.data.recipe_ingredients,
                 recipe_howTo: res.data.recipe_howTo,
-                recipe_nutrValue: res.data.recipe_nutrValue,
                 recipe_cat: res.data.recipe_cat
             })
         })
@@ -45,7 +42,9 @@ export default class EachRecipe extends Component {
                   <li key={item.id}>{item.label}</li>
               )}</p>
               <p className="recipe-how">Tillvägagångssätt: {this.state.recipe_howTo}</p>
-              <p className="recipe-nutr">Näringsvärden: {this.state.recipe_nutrValue}</p>
+              <p className="recipe-nutr">Näringsvärden: {this.state.recipe_ingredients.map((item) => 
+                <li key={item.id}>{item.kcal}</li>
+            )}</p>
               <p className="recipe-cat">Kategori: {this.state.recipe_cat}</p>
             </div>
             </div>
