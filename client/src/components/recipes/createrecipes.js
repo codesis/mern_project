@@ -99,10 +99,14 @@ export default class CreateRecipes extends Component {
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
-                <input type="text"
+                <br></br>
+                <textarea
                        className="form-control"
+                       rows="5"
+                       cols="50"
                        value={this.state.recipe_howTo}
                        onChange={this.onChangeRecipeHowTo}
+                       placeholder="Skriv gärna i nummerordning.."
                        />
                 <div className="form-group">
                 <label>Näringsvärde på total måltid:
