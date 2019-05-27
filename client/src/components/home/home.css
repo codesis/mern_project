@@ -58,19 +58,19 @@ input:focus, select:focus, button:focus {
 input[type=search]:focus {
     width: 300px;
 }
-.gallery {
+.gallery-home {
     display: inline-block;
     margin: 7px 7px;
     border: 1px solid #cda34f;
     width: 300px;
 }
 
-.gallery:hover {
+.gallery-home:hover {
     border: 1px solid #636b46;
     color: #cda34f;
 }
 
-.gallery img {
+.gallery-home img {
     width: 100%;
     height: auto;
     

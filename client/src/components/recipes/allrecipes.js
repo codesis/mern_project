@@ -3,6 +3,7 @@ import axios from 'axios'
 import './allrecipes.css'
 import { Link } from 'react-router-dom'
 import FilterResults from 'react-filter-search'
+import header from '../home/bgContact.jpg'
 
 /**
  * Recipes List holds all the recipes that exists in the
@@ -52,7 +53,7 @@ export default class RecipesList extends Component {
                 {results.map(el => (
                     <div className="gallery" key={el._id}>
                     <Link to={"/recept/"+el._id} className="nav-link">
-                    <img src={el.recipe_image} alt="receptbild" width="600" height="400" />
+                    <img alt="tillfällig bild" src={header} width="600" height="400"/>
                     <div className="r-titel">{el.recipe_title}</div>
                     <div className="r-cat">{el.recipe_cat}</div>
                     </Link>

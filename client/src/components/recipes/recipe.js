@@ -40,14 +40,17 @@ export default class EachRecipe extends Component {
     render() {
         return (
             <div className="content">
-            <h3>Valt recept</h3>
+            <br></br>
             <div className="recipe-div">
-              <p className="recipe-title">Titel: {this.state.recipe_title}</p>
-              <img alt="tillfällig bild" src={header} width="600" height="400"/>
+              <h2 className="recipe-title">{this.state.recipe_title}</h2>
+              <img className="recipe-img" alt="tillfällig bild" src={header} width="600" height="400"/>
               <p className="recipe-ingr">Ingredienslista: {this.state.recipe_ingredients.map((item) => 
                   <li key={item.id}>{item.label}</li>
               )}</p>
-              <p className="recipe-how">Tillvägagångssätt: {this.state.recipe_howTo}</p>
+              <p className="recipe-how">Tillvägagångssätt: 
+              <br/>
+              {this.state.recipe_howTo}
+              </p>
               <label>Näringsvärde på total måltid:
               <table className="nutr-table">
               <tr>
