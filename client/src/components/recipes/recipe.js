@@ -3,6 +3,12 @@ import axios from 'axios'
 import header from '../home/bgContact.jpg'
 import './recipe.css'
 
+/**
+ * Each Recipe holds a chosen recipe, displaying it
+ * When the recipe is displayed, the nutrition is fetched
+ * from the ingredients array, all which are fetched from the
+ * database.
+ */
 export default class EachRecipe extends Component {
     constructor(props) {
         super(props)

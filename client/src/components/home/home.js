@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import './home.css'
 import header from './bgContact.jpg'
 
+/**
+ * Index holding the index page, displaying
+ * one recipe from each category. This feature is
+ * not yet completed.
+ */
 export default class Index extends Component {
     render() {
         return (

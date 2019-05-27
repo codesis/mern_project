@@ -1,6 +1,9 @@
 const Validator = require('validator')
 const isEmpty = require('is-empty')
 
+/**
+ * Validating registration of a new user
+ */
 module.exports = function validateRegisterInput(data) {
     let errors = {}
 
@@ -30,7 +33,7 @@ module.exports = function validateRegisterInput(data) {
     if (!Validator.isLength(data.password, { min: 6 })) {
         errors.password = 'Lösenordet måste vara minst 6 karaktärer'
     }
-
+    // Making sure the passwords are identical
     if (!Validator.equals(data.password, data.password2)) {
         errors.password2 = 'Lösenorden måste matcha'
     }

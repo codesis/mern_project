@@ -4,6 +4,10 @@ import './allrecipes.css'
 import { Link } from 'react-router-dom'
 import FilterResults from 'react-filter-search'
 
+/**
+ * Recipes List holds all the recipes that exists in the
+ * database. There's also a function to search for a specific recipe.
+ */
 export default class RecipesList extends Component {
 
     constructor(props) {

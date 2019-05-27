@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import data from './livsmedel.json'
 import './createrecipes.css'
+// the imports below holds the ingredients component
 import MultiSelect from '@kenshooui/react-multi-select'
 import '@kenshooui/react-multi-select/dist/style.css'
 
+/**
+ * Create Recipes holds the page for creating recipes.
+ * Data is fetched from the json file livsmedel
+ * Chosen ingredients are added to the array selectedItems
+ * On submit the data that is sent is title, the chosen ingredients,
+ * chosen category and the text on how to make the recipe
+ * The recipe is saved to the database
+ */
 export default class CreateRecipes extends Component {
     constructor(props) {
         super(props)

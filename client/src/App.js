@@ -39,7 +39,12 @@ if (localStorage.jwtToken) {
    window.location.href = './loggain'
   }
 }
-
+/**
+ * App holds all routes. The secure ones are the create recipes page and
+ * the dashboard, where signed in users go when they sign in. These two
+ * pages are private which means unauthorized guests wont get access to them,
+ * if they try they get redirected.
+ */
 class App extends Component {
   render() {
     return (
