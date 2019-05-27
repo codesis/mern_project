@@ -105,8 +105,8 @@ export default class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeHowTo}
                        />
                 <div className="form-group">
-                <table className="nutr-table">
                 <label>Näringsvärde på total måltid:
+                <table className="nutr-table">
                 <tr>
                 <th>Kcal</th>
                 <th>Kolhydrater (g)</th>
@@ -183,8 +183,8 @@ export default class CreateRecipes extends Component {
                         </tr>  
                     )
                     })}
-                </label>
                 </table>
+                </label>
                 <div className="form-group">
                     <div className="form-check">
                 <label id="category">Kategori</label>
