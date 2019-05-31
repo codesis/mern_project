@@ -11,7 +11,7 @@ input[type=password], input[type=email], input[type=text] {
         align-items: center;
     padding: 15px;
     position: absolute;
-    top: 35%;
+    top: 123%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

@@ -72,7 +72,7 @@ return (
                   })}
                   placeholder='email'
                 />
-                <label htmlFor='email'>Email</label>
+                <label htmlFor='email'></label>
                 <span className="red-text">
                 {errors.email}
                 {errors.emailnotfound}
@@ -90,7 +90,7 @@ return (
                   })}
                   placeholder="lösenord"
                 />
-                <label htmlFor='password'>Lösenord</label>
+                <label htmlFor='password'></label>
                 <span className="red-text">
                 {errors.password}
                 {errors.passwordincorrect}

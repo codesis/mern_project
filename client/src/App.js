@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import "./App.css";
+import header from './header.jpg'
 
 import Index from './components/home/home'
 import RecipesList from './components/recipes/allrecipes'
@@ -51,6 +52,7 @@ class App extends Component {
       <Provider store={store}>
       <Router>
       <div className="container">
+      <img src={header} alt="header"/>
       <Navbar />
         <br/>
        <Route path="/" exact component={Index} />

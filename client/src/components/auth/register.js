@@ -76,7 +76,7 @@ class Register extends Component {
                   placeholder="namn"
                   className={classnames('', { invalid: errors.name })}
                 />
-                <label htmlFor='name'>Namn</label>
+                <label htmlFor='name'></label>
                 <span className='red-text'>{errors.name}</span>
               </div>
               <div className='input-field col s12'>
@@ -89,7 +89,7 @@ class Register extends Component {
                   placeholder="email"
                   className={classnames('', { invalid: errors.email })}
                 />
-                <label htmlFor='email'>Email</label>
+                <label htmlFor='email'></label>
                 <span className="red-text">{errors.email}</span>
               </div>
               <div className='input-field col s12'>
@@ -102,7 +102,7 @@ class Register extends Component {
                   placeholder="lösenord"
                   className={classnames('', { invalid: errors.password })}
                 />
-                <label htmlFor='password'>Lösenord</label>
+                <label htmlFor='password'></label>
                 <span className="red-text">{errors.password}</span>
               </div>
               <div className='input-field col s12'>
@@ -115,7 +115,7 @@ class Register extends Component {
                   placeholder="repetera lösenord"
                   className={classnames('', { invalid: errors.password2 })}
                 />
-                <label htmlFor='password2'>Repetera lösenord</label>
+                <label htmlFor='password2'></label>
                 <span className="red-text">{errors.password2}</span>
               </div>
               <div className='col s12' style={{ paddingLeft: '11.250px' }}>

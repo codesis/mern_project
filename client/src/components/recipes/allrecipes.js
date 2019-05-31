@@ -39,7 +39,6 @@ export default class RecipesList extends Component {
         const { data, value } = this.state
         return (
             <div>
-            <h3>Alla recept</h3>
             <form className="search">
             <button className="btn-search" type="button" style={{borderStyle: "none"}}><i className="fas fa-search"></i></button>
             <input type="search" style={{borderStyle: "none"}} value={value} onChange={this.handleChange} placeholder="Sök recept eller kategori här.."/>
