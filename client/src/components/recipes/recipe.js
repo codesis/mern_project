@@ -58,6 +58,7 @@ export default class EachRecipe extends Component {
               <th>Kolhydrater (g)</th>
               <th>Fett (g)</th>
               <th>Protein (g)</th>
+              <th>Fiber totalt (g)</th>
               <th>Fullkorn totalt (g)</th>
               <th>Sockerarter (g)</th>
               <th>Mättat fett (g)</th>
@@ -96,7 +97,7 @@ export default class EachRecipe extends Component {
                       <td>{item.carbs}</td>
                       <td>{item.Fett}</td>
                       <td>{item.Protein}</td>
-                      <td>{item.Fibrer}</td>
+                      <td>{item.Fiber}</td>
                       <td>{item.Fullkorn}</td>
                       <td>{item.Socker}</td>
                       <td>{item.MättatFett}</td>
