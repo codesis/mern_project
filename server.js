@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const passport = require('passport')
 const recipeRoutes = express.Router()
 const users = require('./routes/api/users')
+const path = require('path')
 
 let Recipe = require('./models/recipeModel')
 
@@ -83,5 +84,15 @@ app.post('/skapa', (req, res) => {
 })
 
 app.use('/recept', recipeRoutes)
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    // set static folder
+    app.use(express.static('client/build'))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 app.listen(port, () => console.log(`Server started on ${port}`))

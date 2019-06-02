@@ -7,7 +7,7 @@ const validateRegisterInput = require('../../validation/register')
 const validateLoginInput = require('../../validation/login')
 // Load User model
 const User = require('../../models/userModel')
-// @route POST /register
+// @route POST /registrera
 // @desc Register user
 // @access Public
 router.post('/registrera', (req, res) => {
