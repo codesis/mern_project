@@ -27,7 +27,7 @@ app.use(passport.initialize())
 // passport config
 require('./config/passport')(passport)
 // routes
-app.use('/api/users', users)
+app.use('/', users)
 
 recipeRoutes.route('/')
 .get(function(req, res) {
