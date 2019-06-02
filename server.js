@@ -11,7 +11,7 @@ const path = require('path')
 let Recipe = require('./models/recipeModel')
 
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 
 app.use(helmet())
 app.use(cors())
@@ -27,7 +27,7 @@ app.use(passport.initialize())
 // passport config
 require('./config/passport')(passport)
 // routes
-app.use('/', users)
+app.use('/api/users', users)
 
 recipeRoutes.route('/')
 .get(function(req, res) {
