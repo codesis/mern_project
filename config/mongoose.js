@@ -1,7 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 
-const CONNECTION_STRING = process.env.DB_URI
+const CONNECTION_STRING = process.env.MONGOLAB_URI
 // Establish connection to a database and @returns Promise
 module.exports.connect = async () => {
   mongoose.connection.on('connected', () => console.log('MongoDB is connected.'))
