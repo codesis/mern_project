@@ -1,5 +1,4 @@
-const express = require('express')
-const router = express.Router()
+const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 // Load input validation
@@ -15,7 +14,7 @@ router.post('/registrera', (req, res) => {
   
     const { errors, isValid } = validateRegisterInput(req.body)
   
-    // Check validation
+    // Check validation, if not return error 400
     if (!isValid) {
       return res.status(400).json(errors)
     }
