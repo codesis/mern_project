@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 import data from './livsmedel.json'
 import './createrecipes.css'
 // the imports below holds the ingredients component
@@ -14,7 +17,7 @@ import '@kenshooui/react-multi-select/dist/style.css'
  * chosen category and the text on how to make the recipe
  * The recipe is saved to the database
  */
-export default class CreateRecipes extends Component {
+class CreateRecipes extends Component {
     constructor(props) {
         super(props)
 
@@ -64,7 +67,10 @@ export default class CreateRecipes extends Component {
         console.log(`Recipe title: ${this.state.recipe_title}`)
         console.log(`Recipe category: ${this.state.recipe_cat}`)
 
+        const { user } = this.props.auth
+
         const newRecipe = {
+            recipe_creator: user.id,
             recipe_title: this.state.recipe_title,
             recipe_ingredients: this.state.selectedItems,
             recipe_howTo: this.state.recipe_howTo,
@@ -282,3 +288,13 @@ export default class CreateRecipes extends Component {
         )
     }
 }
+
+CreateRecipes.propTypes = {
+    auth: PropTypes.object.isRequired
+  }
+  
+  const mapStateToProps = state => ({
+    auth: state.auth
+  })
+  
+  export default connect(mapStateToProps)(CreateRecipes)

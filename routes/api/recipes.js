@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const auth = require('../../validation/auth')
 let Recipe = require('../../models/recipeModel')
 
 /**
@@ -39,17 +40,14 @@ router.post('/skapa', (req, res) => {
     })
 })
 
-// router.route('/:recipe_creator')
-// .get(function(req, res) {
-//     let creator = req.params.recipe_creator
-//     Recipe.find(creator, function(err, docs) {
-//         if (err) {
-//             console.log(err)
-//         } else {
-//         res.json(docs)
-//         }
-//     })
-// })
+router.get('/dashboard', auth, (req, res) => {
+    const id = req.params.recipe_creator
+    const query = { 'recipe_creator': id }
+
+    Recipe.find(query)
+    .then(recipes => res.json(recipes))
+    .catch(() => res.status(404).json({ msg: 'No recipes could be found' }))
+})
 
 
 module.exports = router

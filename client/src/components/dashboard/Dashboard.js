@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { logoutUser } from "../../actions/authActions"
+import FilterResults from 'react-filter-search'
+import header from '../home/bgContact.jpg'
+
 
 /**
  * Dashboard is the page where users go when they sign in.
@@ -12,22 +17,51 @@ import { logoutUser } from "../../actions/authActions"
  * "Ny användare" or "Logga in"
  */
 class Dashboard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        data: [],
+        value: ''
+    }
+}
+
   onLogoutClick = e => {
     e.preventDefault()
     this.props.logoutUser()
   }
 
+  componentDidMount() {
+    axios.get('/recept/dashboard')
+    .then(res => {
+        console.log(res)
+        this.setState({ 
+          data: res.data
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+  }
+
+  handleChange = event => {
+  const { value } = event.target
+  this.setState({value})
+  }
+
+
   render() {
     const { user } = this.props.auth
+    const { data, value } = this.state
 
     return (
+      <div>
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
               <b>Hej,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                Här kommer Dina egna recept att finnas {" "}
+                Här kommer Dina egna recept så småningom att finnas {" "}
               </p>
             </h4>
             <button
@@ -42,9 +76,29 @@ class Dashboard extends Component {
             >
               Logga ut
             </button>
-          </div>
+         </div>
         </div>
       </div>
+            <div className="recipe-list">
+            <FilterResults
+            value={value}
+            data={data}
+            renderResults={results => (
+                <div>
+                {results.map(el => (
+                    <div className="gallery" key={el._id}>
+                    <Link to={"/recept/"+el._id} className="nav-link">
+                    <img alt="tillfällig bild" src={header} width="600" height="400"/>
+                    <div className="r-titel">{el.recipe_title}</div>
+                    <div className="r-cat">{el.recipe_cat}</div>
+                    </Link>
+                  </div>
+                ))}
+                </div>
+            )}
+            />
+            </div>
+            </div>
     );
   }
 }
