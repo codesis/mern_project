@@ -1,6 +1,19 @@
+.recipe-div {
+    margin-top: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .recipe-img {
     border-radius: 15px;
 }
-p {
+p.recipe-ingr {
     word-break: break-word;
+    font-weight: bold; 
+}
+p.recipe-how {
+    text-decoration: underline;
+    font-size: 20px;
+}
+.recipe-title {
+    text-align: center;
+    font-size: 35px;
 }

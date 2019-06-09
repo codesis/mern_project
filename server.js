@@ -30,9 +30,9 @@ app.use('/', users)
 app.use('/recept', recipes)
 
 app.post('/kontakt', (req,res) => {
-    let data = req.body
+    const data = req.body
   
-  let smtpTransport = nodemailer.createTransport({
+  const smtpTransport = nodemailer.createTransport({
     service: 'Gmail',
     port: 465,
     auth: {
@@ -41,7 +41,7 @@ app.post('/kontakt', (req,res) => {
     }
   })
   
-  let mailOptions = {
+  const mailOptions = {
     from: data.email,
     to: process.env.ADMINEMAIL,
     subject: 'Mail från Snällmat',

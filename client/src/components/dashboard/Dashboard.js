@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux"
 import { logoutUser } from "../../actions/authActions"
 import FilterResults from 'react-filter-search'
-import header from '../home/bgContact.jpg'
+import header from '../home/demoImg.jpg'
 
 
 /**

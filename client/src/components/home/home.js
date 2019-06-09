@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './home.css'
-import example from './bgContact.jpg'
-// import header from './header.jpg'
+import example from './demoImg.jpg'
 
 /**
  * Index holding the index page, displaying
