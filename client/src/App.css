@@ -4,8 +4,6 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
     font-size: 16px;
-    max-width:100%;
-    height:auto;  
   }
   .navbar {
     max-width:100%;
@@ -40,7 +38,7 @@ body {
     text-decoration: none;
     color: #cda34f;
   }
-img {
+img.header {
   max-width:100%;
   height:auto;
 }
