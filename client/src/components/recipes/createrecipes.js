@@ -157,6 +157,7 @@ export default class CreateRecipes extends Component {
                 <th>Selen (µg)</th>
                 <th>Zink (mg)</th>
                 </tr>
+                <td></td>
                 </thead>
                 <tbody>
                 {this.state.selectedItems.map((item, index) => {
