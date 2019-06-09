@@ -23,7 +23,7 @@ export default class CreateRecipes extends Component {
         this.onChangeRecipeHowTo = this.onChangeRecipeHowTo.bind(this)
         this.onChangeRecipeCat = this.onChangeRecipeCat.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-
+        
         this.state = {
             recipe_title: '',
             recipe_ingredients: data,
@@ -120,6 +120,7 @@ export default class CreateRecipes extends Component {
                 <div className="form-group">
                 <label>Näringsvärde på total måltid:
                 <table className="nutr-table">
+                <thead>
                 <tr>
                 <th>Kcal</th>
                 <th>Kolhydrater (g)</th>
@@ -156,7 +157,8 @@ export default class CreateRecipes extends Component {
                 <th>Selen (µg)</th>
                 <th>Zink (mg)</th>
                 </tr>
-                <td></td>
+                </thead>
+                <tbody>
                 {this.state.selectedItems.map((item, index) => {
                     return (
                         <tr key={index}>
@@ -197,6 +199,7 @@ export default class CreateRecipes extends Component {
                         </tr>  
                     )
                     })}
+                    </tbody>
                 </table>
                 </label>
                 <div className="form-group">

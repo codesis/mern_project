@@ -30,8 +30,8 @@ module.exports = function validateRegisterInput(data) {
         errors.password2 = 'Lösenordet måste fyllas i två gånger'
     }
 
-    if (!Validator.isLength(data.password, { min: 6 })) {
-        errors.password = 'Lösenordet måste vara minst 6 karaktärer'
+    if (!Validator.isLength(data.password, { min: 7 })) {
+        errors.password = 'Lösenordet måste vara minst 7 karaktärer'
     }
     // Making sure the passwords are identical
     if (!Validator.equals(data.password, data.password2)) {

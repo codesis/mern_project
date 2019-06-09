@@ -64,7 +64,7 @@ router.post('/registrera', (req, res) => {
     User.findOne({ email }).then(user => {
       // Check if user exists
       if (!user) {
-        return res.status(404).json({ emailnotfound: 'Emailen finns inte' })
+        return res.status(404).json({ emailnotfound: 'Angiven mailadress och lösenord matchar inte. Försök igen.' })
       }
   
       // Check password
@@ -94,7 +94,7 @@ router.post('/registrera', (req, res) => {
         } else {
           return res
             .status(400)
-            .json({ passwordincorrect: 'Lösenordet är inkorrekt' })
+            .json({ passwordincorrect: 'Angiven mailadress och lösenord matchar inte. Försök igen.' })
         }
       })
     })

@@ -39,4 +39,17 @@ router.post('/skapa', (req, res) => {
     })
 })
 
+// router.route('/dashboard')
+// .get(function(req, res) {
+//     let creator = req.params.recipe_creator
+//     Recipe.find(creator, function(err, docs) {
+//         if (err) {
+//             console.log(err)
+//         } else {
+//         res.json(docs)
+//         }
+//     })
+// })
+
+
 module.exports = router

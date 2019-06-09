@@ -13,7 +13,7 @@ module.exports = function validateRegisterInput(data) {
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email krävs'
   } else if (!Validator.isEmail(data.email)) {
-    errors.email = 'Email är inkorrekt'
+    errors.email = 'Angiven mailadress och lösenord matchar inte. Försök igen.'
   }
 // Password checks
   if (Validator.isEmpty(data.password)) {
