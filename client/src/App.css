@@ -1,6 +1,6 @@
 @media only screen and (max-width: 600px) {
   body, .navbar, img.header {
-    max-width:100%;
+    max-width:400px;
     height:auto;  
   }
 }
