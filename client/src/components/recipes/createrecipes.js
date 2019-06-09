@@ -71,7 +71,7 @@ export default class CreateRecipes extends Component {
             recipe_cat: this.state.recipe_cat
         }
 
-        axios.post('/skapa', newRecipe)
+        axios.post('/recept/skapa', newRecipe)
         .then(res => console.log(res.data))
 
         this.setState({
@@ -157,7 +157,6 @@ export default class CreateRecipes extends Component {
                 <th>Selen (µg)</th>
                 <th>Zink (mg)</th>
                 </tr>
-                <td></td>
                 </thead>
                 <tbody>
                 {this.state.selectedItems.map((item, index) => {
