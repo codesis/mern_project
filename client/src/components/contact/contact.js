@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './contact.css'
 
 class Contact extends Component {
     state = {
@@ -55,7 +56,7 @@ class Contact extends Component {
             <input onChange={(e) => this.setState({ email: e.target.value})} name="email" className="message-email" type="email" placeholder="Er email" required value={this.state.email} />
           
             <div className="button--container">
-                <button type="submit" className="button button-primary">{ this.state.buttonText }</button>
+                <button type="submit" className="button-email">{ this.state.buttonText }</button>
             </div>
           </form>      
           </div>  
