@@ -1,5 +1,22 @@
+.row-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 230px;
+}
 .button-email {
-    width: 170px;
+    width: 200px;
+    margin-top: 10px;
+}
+.message-input {
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    resize: none;
+    outline: none;
 }
 label {
     color: #4e9632;
