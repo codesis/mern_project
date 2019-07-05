@@ -50,10 +50,15 @@ input[type=search]:focus {
 .gallery img {
     width: 300px;
     height: auto;
-    
 }
 
 .r-titel {
-    padding: 15px;
+    padding: 12px;
     text-align: center;
+    font-size: 22px;
+    height: 66px;
+}
+
+.r-cat {
+    font-size: 12px;
 }
