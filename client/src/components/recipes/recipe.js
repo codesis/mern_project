@@ -15,6 +15,7 @@ export default class EachRecipe extends Component {
         this.state = {
             recipe_title: '',
             recipe_ingredients: [],
+            recipe_ingredientsAmount: [],
             recipe_howTo: '',
             recipe_cat: ''
         }
@@ -27,6 +28,7 @@ export default class EachRecipe extends Component {
             this.setState({ 
                 recipe_title: res.data.recipe_title,
                 recipe_ingredients: res.data.recipe_ingredients,
+                recipe_ingredientsAmount: res.data.recipe_ingredientsAmount,
                 recipe_howTo: res.data.recipe_howTo,
                 recipe_cat: res.data.recipe_cat
             })
@@ -41,17 +43,21 @@ export default class EachRecipe extends Component {
             <div className="content">
             <br/>
             <div className="recipe-div">
-              <h2 className="recipe-title">{this.state.recipe_title}</h2>
+              <h3 className="recipe-title">{this.state.recipe_title}</h3>
               <img className="recipe-img" alt="tillfällig bild" src={header} width="600" height="400"/>
               <p className="recipe-ingr">Ingredienslista: {this.state.recipe_ingredients.map((item) => 
                   <li key={item.id}>{item.label}</li>
-              )}</p>
+              )}
+              {this.state.recipe_ingredientsAmount.map((item) =>
+                <ul key={item.id}></ul>
+              )}
+              </p>
               <p className="recipe-how">Tillvägagångssätt:</p>
               <p className="recipe-howto">
               {this.state.recipe_howTo}
               </p>
               <br/>
-              <label>Näringsvärde på total måltid:
+              <label>Näringsvärde per ingrediens á 100 gram:
               <table className="nutr-table">
               <tr>
               <th>Kcal</th>

@@ -14,6 +14,6 @@ p.recipe-how {
     font-size: 20px;
 }
 .recipe-title {
-    text-align: center;
+    display: inline-block;
     font-size: 35px;
 }

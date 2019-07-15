@@ -8,6 +8,7 @@ import './createrecipes.css'
 // the imports below holds the ingredients component
 import MultiSelect from '@kenshooui/react-multi-select'
 import '@kenshooui/react-multi-select/dist/style.css'
+import NumericInput from 'react-numeric-input'
 
 /**
  * Create Recipes holds the page for creating recipes.
@@ -30,6 +31,7 @@ class CreateRecipes extends Component {
         this.state = {
             recipe_title: '',
             recipe_ingredients: data,
+            recipe_ingredientsAmount: [],
             recipe_howTo: '',
             recipe_cat: '',
             selectedItems: [],
@@ -73,6 +75,7 @@ class CreateRecipes extends Component {
             recipe_creator: user.id,
             recipe_title: this.state.recipe_title,
             recipe_ingredients: this.state.selectedItems,
+            recipe_ingredientsAmount: this.state.recipe_ingredientsAmount,
             recipe_howTo: this.state.recipe_howTo,
             recipe_cat: this.state.recipe_cat
         }
@@ -110,7 +113,17 @@ class CreateRecipes extends Component {
                 selectedItems={this.state.selectedItems}
                 onChange={this.onChangeRecipeIngredients}
                 />
-                </div>                
+                </div>
+                <li>Mängd per ingrediens: </li>
+                {this.state.selectedItems.map((item, index) => {
+                    return (
+                        <li key={index}>
+                        <ul>{item.label}</ul>
+                        <NumericInput
+                        onChange={this.state.recipe_ingredientsAmount}
+                        />
+                        </li>
+                    )})}
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
