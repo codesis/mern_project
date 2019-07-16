@@ -30,6 +30,8 @@ li.rec-ingr {
 }
 .rec-row {
     width: 900px;
+    float: left;
+    clear: none;
     margin-bottom: 35px;
 }
 .recipe-title {
