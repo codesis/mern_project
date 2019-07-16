@@ -43,17 +43,23 @@ export default class EachRecipe extends Component {
             <div className="recipe-div">
               <h3 className="recipe-title">{this.state.recipe_title}</h3>
               <img className="recipe-img" alt="tillfällig bild" src={header} width="600" height="400"/>
-              <h4 className="recipe-ingr">Ingredienslista: </h4>
-              <p> {this.state.recipe_ingredients.map((item) => 
-                  <ul key={item.id}>{item.label}
-                  <li>{item.amount}</li>
+              <div className="rec-row">
+              <div className="row-ingr">
+              <h4 className="recipe-ingr">Ingredienser</h4>
+              <p className="rec-ingr"> {this.state.recipe_ingredients.map((item) => 
+                  <ul className="rec-ingr" key={item.id} >{item.label}
+                  <li className="rec-ingr">{item.amount}</li>
                   </ul>
               )}
               </p>
-              <p className="recipe-how">Tillvägagångssätt:</p>
+              </div>
+              <div className="row-how">
+              <h4 className="recipe-how">Tillvägagångssätt</h4>
               <p className="recipe-howto">
               {this.state.recipe_howTo}
               </p>
+              </div>
+              </div>
               <br/>
               <label>Näringsvärde per ingrediens á 100 gram:
               <table className="nutr-table">
@@ -64,9 +70,6 @@ export default class EachRecipe extends Component {
               <th>Fiber totalt (g)</th>
               <th>Sockerarter (g)</th>
               <th>Mättat fett (g)</th>
-              <th>EPA (g)</th>
-              <th>DPA (g)</th>
-              <th>DHA (g)</th>
               <th>Kolesterol (mg)</th>
               <th>Vitamin A (µg)</th>
               <th>Betakaroten (µg)</th>
@@ -101,9 +104,6 @@ export default class EachRecipe extends Component {
                       <td>{item.Fiber}</td>
                       <td>{item.Socker}</td>
                       <td>{item.MättatFett}</td>
-                      <td>{item.EPA}</td>
-                      <td>{item.DPA}</td>
-                      <td>{item.DHA}</td>
                       <td>{item.Kolesterol}</td>
                       <td>{item.VitA}</td>
                       <td>{item.BetaKaroten}</td>

@@ -5,15 +5,38 @@
 .recipe-img {
     border-radius: 15px;
 }
-p.recipe-ingr {
-    word-break: break-word;
-    font-weight: bold; 
+h4.recipe-ingr, h4.recipe-how {
+    margin-left: 50px;
 }
-p.recipe-how {
-    text-decoration: underline;
-    font-size: 20px;
+ul.rec-ingr {
+    list-style: none;
+}
+li.rec-ingr {
+    font-size: 85%;
+    font-style: italic;
+}
+.recipe-howto {
+    margin-left: 50px;
+    word-spacing: 5px;
+}
+.row-ingr {
+    width: 300px;
+    display: inline-block;
+}
+.row-how {
+    display: inline-block;
+    margin-left: 10px;
+    width: 300px;
+}
+.rec-row {
+    width: 900px;
+    margin-bottom: 35px;
 }
 .recipe-title {
     display: inline-block;
     font-size: 35px;
+}
+.nutr-table {
+    width: 900px;
+    display: inline-block;
 }
