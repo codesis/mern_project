@@ -15,7 +15,6 @@ export default class EachRecipe extends Component {
         this.state = {
             recipe_title: '',
             recipe_ingredients: [],
-            recipe_ingredientsAmount: [],
             recipe_howTo: '',
             recipe_cat: ''
         }
@@ -28,7 +27,6 @@ export default class EachRecipe extends Component {
             this.setState({ 
                 recipe_title: res.data.recipe_title,
                 recipe_ingredients: res.data.recipe_ingredients,
-                recipe_ingredientsAmount: res.data.recipe_ingredientsAmount,
                 recipe_howTo: res.data.recipe_howTo,
                 recipe_cat: res.data.recipe_cat
             })
@@ -45,11 +43,11 @@ export default class EachRecipe extends Component {
             <div className="recipe-div">
               <h3 className="recipe-title">{this.state.recipe_title}</h3>
               <img className="recipe-img" alt="tillfällig bild" src={header} width="600" height="400"/>
-              <p className="recipe-ingr">Ingredienslista: {this.state.recipe_ingredients.map((item) => 
-                  <li key={item.id}>{item.label}</li>
-              )}
-              {this.state.recipe_ingredientsAmount.map((item) =>
-                <ul key={item.id}></ul>
+              <h4 className="recipe-ingr">Ingredienslista: </h4>
+              <p> {this.state.recipe_ingredients.map((item) => 
+                  <ul key={item.id}>{item.label}
+                  <li>{item.amount}</li>
+                  </ul>
               )}
               </p>
               <p className="recipe-how">Tillvägagångssätt:</p>
@@ -60,12 +58,10 @@ export default class EachRecipe extends Component {
               <label>Näringsvärde per ingrediens á 100 gram:
               <table className="nutr-table">
               <tr>
-              <th>Kcal</th>
               <th>Kolhydrater (g)</th>
               <th>Fett (g)</th>
               <th>Protein (g)</th>
               <th>Fiber totalt (g)</th>
-              <th>Fullkorn totalt (g)</th>
               <th>Sockerarter (g)</th>
               <th>Mättat fett (g)</th>
               <th>EPA (g)</th>
@@ -99,12 +95,10 @@ export default class EachRecipe extends Component {
               {this.state.recipe_ingredients.map((item, index) => {
                   return (
                       <tr key={index}>
-                      <td>{item.kcal}</td>
                       <td>{item.carbs}</td>
                       <td>{item.Fett}</td>
                       <td>{item.Protein}</td>
                       <td>{item.Fiber}</td>
-                      <td>{item.Fullkorn}</td>
                       <td>{item.Socker}</td>
                       <td>{item.MättatFett}</td>
                       <td>{item.EPA}</td>

@@ -8,7 +8,7 @@ import './createrecipes.css'
 // the imports below holds the ingredients component
 import MultiSelect from '@kenshooui/react-multi-select'
 import '@kenshooui/react-multi-select/dist/style.css'
-import NumericInput from 'react-numeric-input'
+// import NumericInput from 'react-numeric-input'
 
 /**
  * Create Recipes holds the page for creating recipes.
@@ -24,6 +24,7 @@ class CreateRecipes extends Component {
 
         this.onChangeRecipeTitle = this.onChangeRecipeTitle.bind(this)
         this.onChangeRecipeIngredients = this.onChangeRecipeIngredients.bind(this)
+        this.onChangeIngredientsAmount = this.onChangeIngredientsAmount.bind(this)
         this.onChangeRecipeHowTo = this.onChangeRecipeHowTo.bind(this)
         this.onChangeRecipeCat = this.onChangeRecipeCat.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -31,7 +32,6 @@ class CreateRecipes extends Component {
         this.state = {
             recipe_title: '',
             recipe_ingredients: data,
-            recipe_ingredientsAmount: [],
             recipe_howTo: '',
             recipe_cat: '',
             selectedItems: [],
@@ -51,6 +51,18 @@ class CreateRecipes extends Component {
     }
     onChangeRecipeIngredients(selectedItems) {
         this.setState({ selectedItems })
+    }
+    // for editing how much of each ingredient the user needs for the recipe
+    onChangeIngredientsAmount = idx => e => {
+        const newAmount = 
+        this.state.selectedItems.map((item, sidx) => {
+            if (idx !== sidx) return item
+            return { ...item, amount: e.target.value}
+        })
+
+        this.setState({
+            selectedItems: newAmount
+        })
     }
     onChangeRecipeHowTo(e) {
         this.setState({
@@ -75,7 +87,6 @@ class CreateRecipes extends Component {
             recipe_creator: user.id,
             recipe_title: this.state.recipe_title,
             recipe_ingredients: this.state.selectedItems,
-            recipe_ingredientsAmount: this.state.recipe_ingredientsAmount,
             recipe_howTo: this.state.recipe_howTo,
             recipe_cat: this.state.recipe_cat
         }
@@ -87,7 +98,8 @@ class CreateRecipes extends Component {
             recipe_title: '',
             recipe_ingredients: [],
             recipe_howTo: '',
-            recipe_cat: ''
+            recipe_cat: '',
+            selectedItems: []
         })
     }
     render() {
@@ -114,16 +126,20 @@ class CreateRecipes extends Component {
                 onChange={this.onChangeRecipeIngredients}
                 />
                 </div>
-                <li>Mängd per ingrediens: </li>
-                {this.state.selectedItems.map((item, index) => {
+                <label>Mängd per ingrediens: </label>
+                <tbody>
+                {this.state.selectedItems.map((item, idx) => {
                     return (
-                        <li key={index}>
-                        <ul>{item.label}</ul>
-                        <NumericInput
-                        onChange={this.state.recipe_ingredientsAmount}
+                        <tr key={idx}>
+                        <th>{item.label}</th>
+                        <td><input type="text"
+                        value={item.amount}
+                        onChange={this.onChangeIngredientsAmount(idx)}
                         />
-                        </li>
+                        </td>
+                        </tr>
                     )})}
+                </tbody>
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
@@ -141,17 +157,12 @@ class CreateRecipes extends Component {
                 <table className="nutr-table">
                 <thead>
                 <tr>
-                <th>Kcal</th>
                 <th>Kolhydrater (g)</th>
                 <th>Fett (g)</th>
                 <th>Protein (g)</th>
                 <th>Fiber totalt (g)</th>
-                <th>Fullkorn totalt (g)</th>
                 <th>Sockerarter (g)</th>
                 <th>Mättat fett (g)</th>
-                <th>EPA (g)</th>
-                <th>DPA (g)</th>
-                <th>DHA (g)</th>
                 <th>Kolesterol (mg)</th>
                 <th>Vitamin A (µg)</th>
                 <th>Betakaroten (µg)</th>
@@ -181,17 +192,12 @@ class CreateRecipes extends Component {
                 {this.state.selectedItems.map((item, index) => {
                     return (
                         <tr key={index}>
-                        <td>{item.kcal}</td>
                         <td>{item.carbs}</td>
                         <td>{item.Fett}</td>
                         <td>{item.Protein}</td>
                         <td>{item.Fiber}</td>
-                        <td>{item.Fullkorn}</td>
                         <td>{item.Socker}</td>
                         <td>{item.MättatFett}</td>
-                        <td>{item.EPA}</td>
-                        <td>{item.DPA}</td>
-                        <td>{item.DHA}</td>
                         <td>{item.Kolesterol}</td>
                         <td>{item.VitA}</td>
                         <td>{item.BetaKaroten}</td>
