@@ -108,7 +108,7 @@ class CreateRecipes extends Component {
             <h3>Skapa nytt recept</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label>Title: </label>
+                    <label>Titel: </label>
                     <input type="text" 
                         className="form-control" 
                         value={this.state.recipe_title} 
@@ -152,11 +152,13 @@ class CreateRecipes extends Component {
                        onChange={this.onChangeRecipeHowTo}
                        placeholder="Skriv gärna i nummerordning.."
                        />
+                <hr/>
                 <div className="form-group">
                 <label>Näringsvärde på total måltid:
                 <table className="nutr-table">
                 <thead>
                 <tr>
+                <th>Ingrediens</th>
                 <th>Kolhydrater (g)</th>
                 <th>Fett (g)</th>
                 <th>Protein (g)</th>
@@ -192,6 +194,7 @@ class CreateRecipes extends Component {
                 {this.state.selectedItems.map((item, index) => {
                     return (
                         <tr key={index}>
+                        <td>{item.label}</td>
                         <td>{item.carbs}</td>
                         <td>{item.Fett}</td>
                         <td>{item.Protein}</td>

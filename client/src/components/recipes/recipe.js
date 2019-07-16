@@ -39,9 +39,9 @@ export default class EachRecipe extends Component {
     render() {
         return (
             <div className="content">
-            <br/>
             <div className="recipe-div">
               <h3 className="recipe-title">{this.state.recipe_title}</h3>
+              <br/>
               <img className="recipe-img" alt="tillfällig bild" src={header} width="600" height="400"/>
               <div className="rec-row">
               <div className="row-ingr">
@@ -59,11 +59,13 @@ export default class EachRecipe extends Component {
               {this.state.recipe_howTo}
               </p>
               </div>
+              <hr />
               </div>
               <br/>
-              <label>Näringsvärde per ingrediens á 100 gram:
+              <label><p className="nutr-label">Näringsvärde per ingrediens á 100 gram:</p>
               <table className="nutr-table">
               <tr>
+              <th>Ingrediens</th>
               <th>Kolhydrater (g)</th>
               <th>Fett (g)</th>
               <th>Protein (g)</th>
@@ -98,6 +100,7 @@ export default class EachRecipe extends Component {
               {this.state.recipe_ingredients.map((item, index) => {
                   return (
                       <tr key={index}>
+                      <td>{item.label}</td>
                       <td>{item.carbs}</td>
                       <td>{item.Fett}</td>
                       <td>{item.Protein}</td>

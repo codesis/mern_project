@@ -38,7 +38,15 @@ li.rec-ingr {
     display: inline-block;
     font-size: 35px;
 }
+hr {
+    width: 90%;
+    float: right;
+}
+.nutr-label {
+    font-size: 18px;
+}
 .nutr-table {
     width: 900px;
+    height: auto;
     display: inline-block;
 }
