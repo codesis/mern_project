@@ -154,7 +154,7 @@ class CreateRecipes extends Component {
                        />
                 <hr/>
                 <div className="form-group">
-                <label>Näringsvärde på total måltid:
+                <label>Näringsvärde per ingrediens á 100g:
                 <table className="nutr-table">
                 <thead>
                 <tr>

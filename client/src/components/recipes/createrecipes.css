@@ -19,8 +19,7 @@
   text-decoration: underline;
 }
 table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  color: #636b46;
+  width: 900px;
+  height: auto;
+  display: inline-block;
 }
