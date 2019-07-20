@@ -59,9 +59,9 @@ export default class EachRecipe extends Component {
               {this.state.recipe_howTo}
               </p>
               </div>
-              <hr />
               </div>
               <br/>
+              <hr />
               <label><p className="nutr-label">Näringsvärde per ingrediens á 100 gram:</p>
               <table className="nutr-table">
               <tr>

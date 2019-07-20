@@ -143,7 +143,7 @@ class CreateRecipes extends Component {
                 </div>
                 <div className="form-group">
                 <label>Tillvägagångssätt</label>
-                <br></br>
+                <br/>
                 <textarea
                        className="form-control"
                        rows="5"
@@ -154,6 +154,7 @@ class CreateRecipes extends Component {
                        />
                 <hr/>
                 <div className="form-group">
+                <br/>
                 <label>Näringsvärde per ingrediens á 100g:
                 <table className="nutr-table">
                 <thead>
