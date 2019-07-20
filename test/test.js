@@ -129,12 +129,19 @@ describe('POST /loggain', function () {
         done()
         })
     })
-})
-// Testing creating recipe
-describe('POST /skapa', function () {
-    it('should create a new recipe', done => {
+    it('should sign in the user', done => {
         backend
-        .post('/skapa')
-        .send({})
+        .post('/loggain')
+        .send({
+            'name': 'test',
+            'email': 'test@mail.com',
+            'password': '1234567',
+            'password2': '1234567'
+        })
+        .end(function (err, res) {
+            if (err) throw err
+            expect(res.status).to.equal(200)
+            done()
+        })
     })
 })
