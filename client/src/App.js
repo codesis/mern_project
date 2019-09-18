@@ -74,7 +74,7 @@ class App extends Component {
         header
       }
       alt = "header"
-      width = "auto" / >
+      className = "header" / >
       <
       /div> <
       Navbar / >
@@ -127,10 +127,10 @@ class App extends Component {
       component = {
         Dashboard
       }
-      /> < /
-      Switch > <
-      /div> < /
-      Router > <
+      /> <
+      /Switch> <
+      /div> <
+      /Router> <
       /Provider>
     )
   }
