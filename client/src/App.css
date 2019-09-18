@@ -18,7 +18,7 @@ body {
 
 .header {
   width: 100%;
-  align-content: center;
+  position: relative;
   background: url(https://github.com/codesis/mern_project/blob/master/client/src/header.jpg?raw=true);
 }
 
