@@ -1,10 +1,21 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React, {
+  Component
+} from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom"
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
-import { setCurrentUser, logoutUser } from './actions/authActions'
+import {
+  setCurrentUser,
+  logoutUser
+} from './actions/authActions'
 
-import { Provider } from 'react-redux'
+import {
+  Provider
+} from 'react-redux'
 import store from './store'
 
 import "./App.css";
@@ -26,18 +37,18 @@ import Dashboard from './components/dashboard/Dashboard'
 if (localStorage.jwtToken) {
   const token = localStorage.jwtToken
   setAuthToken(token)
- // decode token and get user info
+  // decode token and get user info
   const decoded = jwt_decode(token)
- // set user and isAuthenticated
+  // set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded))
 
- // check for expired token
+  // check for expired token
   const currentTime = Date.now() / 1000 // to get ms
   if (decoded.exp < currentTime) {
     // Sign out user
     store.dispatch(logoutUser())
-   // redirect to sign in
-   window.location.href = './loggain'
+    // redirect to sign in
+    window.location.href = './loggain'
   }
 }
 /**
@@ -48,27 +59,79 @@ if (localStorage.jwtToken) {
  */
 class App extends Component {
   render() {
-    return (
-      <Provider store={store}>
-      <Router>
-      <div className="container">
-      <img src={header} alt="header"/>
-      <Navbar />
-        <br/>
-       <Route path="/" exact component={Index} />
-       <Route path="/recept" exact component={RecipesList} />
-       <Route path="/recept/:id" component={EachRecipe} />
-       <Route path="/om" exact component={About} />
-       <Route path="/kontakt" exact component={Contact} />
-       <Route path="/registrera" exact component={Register} />
-       <Route path="/loggain" exact component={Login} />
-       <Switch>
-        <PrivateRoute path="/skapa" exact component={CreateRecipes} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-       </Switch>
-      </div>
-      </Router>
-      </Provider>
+    return ( <
+      Provider store = {
+        store
+      } >
+      <
+      Router >
+      <
+      div className = "container" >
+      <
+      div className = "headerDiv" >
+      <
+      img src = {
+        header
+      }
+      alt = "header"
+      width = "auto" / >
+      <
+      /div> <
+      Navbar / >
+      <
+      br / >
+      <
+      Route path = "/"
+      exact component = {
+        Index
+      }
+      /> <
+      Route path = "/recept"
+      exact component = {
+        RecipesList
+      }
+      /> <
+      Route path = "/recept/:id"
+      component = {
+        EachRecipe
+      }
+      /> <
+      Route path = "/om"
+      exact component = {
+        About
+      }
+      /> <
+      Route path = "/kontakt"
+      exact component = {
+        Contact
+      }
+      /> <
+      Route path = "/registrera"
+      exact component = {
+        Register
+      }
+      /> <
+      Route path = "/loggain"
+      exact component = {
+        Login
+      }
+      /> <
+      Switch >
+      <
+      PrivateRoute path = "/skapa"
+      exact component = {
+        CreateRecipes
+      }
+      /> <
+      PrivateRoute path = "/dashboard"
+      component = {
+        Dashboard
+      }
+      /> < /
+      Switch > <
+      /div> < /
+      Router > <
+      /Provider>
     )
   }
 }
