@@ -1,9 +1,13 @@
-/* @media only screen and (max-width: 600px) {
-  body, .navbar, img.header {
-    max-width:400px;
-    height:auto;  
-  } testing if this changes the view
-} */
+@media only screen and (max-width: 600px) {
+
+  body,
+  .navbar,
+  img.header {
+    max-width: 400px;
+    height: auto;
+  }
+}
+
 body {
   background-color: rgb(243, 243, 243);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

@@ -1,28 +1,33 @@
 .content {
     max-width: 1000px;
+    height: auto;
     margin: auto;
     padding: 10px;
     text-align: center;
     color: #636b46;
 }
+
 .welc {
     font-size: 30px;
 }
+
 .header {
     color: #636b46;
     position: relative;
     text-align: center;
 }
+
 .header img {
     height: 350px;
 }
+
 .search {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
-        justify-content: center;
+    justify-content: center;
     -ms-flex-align: center;
-        align-items: center;
+    align-items: center;
     padding: 15px;
     position: absolute;
     top: 45%;
@@ -37,27 +42,35 @@ input[type=search] {
     width: 160px;
     transition: ease-in-out, width .35s ease-in-out;
 }
+
 select {
     height: 50px;
     font-size: 20px;
     margin-right: 4px;
     color: #636b46;
 }
+
 button {
     height: 50px;
     width: 60px;
     border-radius: 5px 0px 0px 5px;
 }
+
 i {
     color: #cda34f;
     font-size: 18px;
 }
-input:focus, select:focus, button:focus {
+
+input:focus,
+select:focus,
+button:focus {
     outline: none;
 }
+
 input[type=search]:focus {
     width: 300px;
 }
+
 .gallery-home {
     display: inline-block;
     margin: 7px 7px;
@@ -73,7 +86,7 @@ input[type=search]:focus {
 .gallery-home img {
     width: 100%;
     height: auto;
-    
+
 }
 
 .r-titel {
