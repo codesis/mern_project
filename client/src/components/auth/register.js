@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 
-import './auth.css'
-import { connect } from 'react-redux'
-import { registerUser } from '../../actions/authActions'
+import "./auth.css";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
 
 class Register extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      name: '',
-      email: '',
-      password: '',
-      password2: '',
-      errors: {}
-    }
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {},
+    };
   }
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
@@ -28,105 +28,108 @@ class Register extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
-      })
+        errors: nextProps.errors,
+      });
     }
   }
 
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value })
-  }
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
-  onSubmit = e => {
-    e.preventDefault()
+  onSubmit = (e) => {
+    e.preventDefault();
 
     const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
-    }
-      this.props.registerUser(newUser, this.props.history)
-  }
+      password2: this.state.password2,
+    };
+    this.props.registerUser(newUser, this.props.history);
+  };
 
   render() {
-    const { errors } = this.state
-      return (
-      <div className='content'>
-      <div className='row'>
-      <div className='reg-row'>
-            <div className='col s12' style={{ paddingLeft: '11.250px' }}>
-            <br/>
-            <br/>
+    const { errors } = this.state;
+    return (
+      <div className="content">
+        <div className="row">
+          <div className="reg-row">
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <br />
+              <br />
               <h2>
                 <b>Registrera er</b> nedan
               </h2>
               <p>
-                Har du redan ett konto? <Link to='/loggain' style={{ color: '#cda34f' }}>Logga in här..</Link>
+                Har du redan ett konto?{" "}
+                <Link to="/loggain" style={{ color: "#cda34f" }}>
+                  Logga in här..
+                </Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
                   error={errors.name}
-                  id='name'
-                  type='text'
+                  id="name"
+                  type="text"
                   placeholder="namn"
-                  className={classnames('', { invalid: errors.name })}
+                  className={classnames("", { invalid: errors.name })}
                 />
-                <label htmlFor='name'></label>
-                <span className='red-text'>{errors.name}</span>
+                <label htmlFor="name"></label>
+                <span className="red-text">{errors.name}</span>
               </div>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
-                  id='email'
-                  type='email'
+                  id="email"
+                  type="email"
                   placeholder="email"
-                  className={classnames('', { invalid: errors.email })}
+                  className={classnames("", { invalid: errors.email })}
                 />
-                <label htmlFor='email'></label>
+                <label htmlFor="email"></label>
                 <span className="red-text">{errors.email}</span>
               </div>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
-                  id='password'
-                  type='password'
+                  id="password"
+                  type="password"
                   placeholder="lösenord"
-                  className={classnames('', { invalid: errors.password })}
+                  className={classnames("", { invalid: errors.password })}
                 />
-                <label htmlFor='password'></label>
+                <label htmlFor="password"></label>
                 <span className="red-text">{errors.password}</span>
               </div>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password2}
                   error={errors.password2}
-                  id='password2'
-                  type='password'
+                  id="password2"
+                  type="password"
                   placeholder="repetera lösenord"
-                  className={classnames('', { invalid: errors.password2 })}
+                  className={classnames("", { invalid: errors.password2 })}
                 />
-                <label htmlFor='password2'></label>
+                <label htmlFor="password2"></label>
                 <span className="red-text">{errors.password2}</span>
               </div>
-              <div className='col s12' style={{ paddingLeft: '11.250px' }}>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
-                    width: '150px',
-                    borderRadius: '3px',
-                    letterSpacing: '1.5px',
-                    marginTop: '1rem'
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
                   }}
-                  type='submit'
+                  type="submit"
                 >
                   Registrera
                 </button>
@@ -135,22 +138,19 @@ class Register extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-}
+  errors: PropTypes.object.isRequired,
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
-})
+  errors: state.errors,
+});
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register))
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));

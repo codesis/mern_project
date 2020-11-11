@@ -1,94 +1,93 @@
 .content {
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    padding: 10px;
-    text-align: center;
-    color: #636b46;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  color: #636b46;
 }
 
 .welc {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .header {
-    color: #636b46;
-    text-align: center;
+  color: #636b46;
+  text-align: center;
 }
 
 .header img {
-    height: 350px;
+  height: 100px;
 }
 
 .search {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 15px;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-input[type=search] {
-    border-radius: 0px 5px 5px 0px;
-    font-size: 24px;
-    height: 50px;
-    width: 160px;
-    transition: ease-in-out, width .35s ease-in-out;
+input[type="search"] {
+  border-radius: 0px 5px 5px 0px;
+  font-size: 24px;
+  height: 50px;
+  width: 160px;
+  transition: ease-in-out, width 0.35s ease-in-out;
 }
 
 select {
-    height: 50px;
-    font-size: 20px;
-    margin-right: 4px;
-    color: #636b46;
+  height: 50px;
+  font-size: 20px;
+  margin-right: 4px;
+  color: #636b46;
 }
 
 button {
-    height: 50px;
-    width: 60px;
-    border-radius: 5px 0px 0px 5px;
+  height: 50px;
+  width: 60px;
+  border-radius: 5px 0px 0px 5px;
 }
 
 i {
-    color: #cda34f;
-    font-size: 18px;
+  color: #cda34f;
+  font-size: 18px;
 }
 
 input:focus,
 select:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
-input[type=search]:focus {
-    width: 300px;
+input[type="search"]:focus {
+  width: 300px;
 }
 
 .gallery-home {
-    display: inline-block;
-    margin: 7px 7px;
-    border: 1px solid #cda34f;
-    width: 300px;
+  display: inline-block;
+  margin: 7px 7px;
+  border: 1px solid #cda34f;
+  width: 300px;
 }
 
 .gallery-home:hover {
-    border: 1px solid #636b46;
-    color: #cda34f;
+  border: 1px solid #636b46;
+  color: #cda34f;
 }
 
 .gallery-home img {
-    width: 100%;
-    height: auto;
-
+  width: 100%;
+  height: auto;
 }
 
 .r-titel {
-    padding: 15px;
-    text-align: center;
+  padding: 15px;
+  text-align: center;
 }

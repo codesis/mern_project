@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { loginUser } from '../../actions/authActions'
-import classnames from 'classnames'
-import './auth.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
+import classnames from "classnames";
+import "./auth.css";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
-      errors: {}
-    }
+      email: "",
+      password: "",
+      errors: {},
+    };
   }
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
@@ -23,88 +23,91 @@ class Login extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard')
+      this.props.history.push("/dashboard");
     }
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
-      })
+        errors: nextProps.errors,
+      });
     }
   }
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value })
-  }
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
-  onSubmit = e => {
-    e.preventDefault()
+  onSubmit = (e) => {
+    e.preventDefault();
 
     const userData = {
       email: this.state.email,
-      password: this.state.password
-    }
-    this.props.loginUser(userData) 
-  }
+      password: this.state.password,
+    };
+    this.props.loginUser(userData);
+  };
 
-render() {
-    const { errors } = this.state
-return (
-      <div className='content'>
-        <div className='row'>
-          <div className='col s8 offset-s2'>
-            <div className='col s12' style={{ paddingLeft: '11.250px' }}>
+  render() {
+    const { errors } = this.state;
+    return (
+      <div className="content">
+        <div className="row">
+          <div className="col s8 offset-s2">
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h2>
                 <b>Logga in</b> nedan
               </h2>
-              <p className='grey-text text-darken-1'>
-                Har du inget konto? <Link to='/registrera' style={{ color: '#cda34f' }}>Registrera dig här..</Link>
+              <p className="grey-text text-darken-1">
+                Har du inget konto?{" "}
+                <Link to="/registrera" style={{ color: "#cda34f" }}>
+                  Registrera dig här..
+                </Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
-                  id='email'
-                  type='email'
-                  className={classnames('', {
-                    invalid: errors.email || errors.emailnotfound
+                  id="email"
+                  type="email"
+                  className={classnames("", {
+                    invalid: errors.email || errors.emailnotfound,
                   })}
-                  placeholder='email'
+                  placeholder="email"
                 />
-                <label htmlFor='email'></label>
+                <label htmlFor="email"></label>
                 <span className="red-text">
-                {errors.email}
-                {errors.emailnotfound}
+                  {errors.email}
+                  {errors.emailnotfound}
                 </span>
               </div>
-              <div className='input-field col s12'>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
-                  id='password'
-                  type='password'
-                  className={classnames('', {
-                    invalid: errors.password || errors.passwordincorrect
+                  id="password"
+                  type="password"
+                  className={classnames("", {
+                    invalid: errors.password || errors.passwordincorrect,
                   })}
                   placeholder="lösenord"
                 />
-                <label htmlFor='password'></label>
+                <label htmlFor="password"></label>
                 <span className="red-text">
-                {errors.password}
-                {errors.passwordincorrect}
+                  {errors.password}
+                  {errors.passwordincorrect}
                 </span>
               </div>
-              <div className='col s12' style={{ paddingLeft: '11.250px' }}>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
-                    width: '150px',
-                    borderRadius: '3px',
-                    letterSpacing: '1.5px',
-                    marginTop: '1rem'
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
                   }}
-                  type='submit'
+                  type="submit"
                 >
                   Logga in
                 </button>
@@ -113,19 +116,16 @@ return (
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-}
-const mapStateToProps = state => ({
+  errors: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
-})
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(Login)
+  errors: state.errors,
+});
+export default connect(mapStateToProps, { loginUser })(Login);
