@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -53,7 +53,9 @@ class App extends Component {
         <Router>
           <div className="container">
             <div className="headerDiv">
-              <img src={header} alt="header" className="header" />
+              <Link to="/">
+                <img src={header} alt="header" className="header" />
+              </Link>
             </div>{" "}
             <Navbar />
             <br />
