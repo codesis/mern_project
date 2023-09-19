@@ -44,7 +44,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "mocha": "^8.2.1",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.6",
     "supertest": "^4.0.2"
   }
